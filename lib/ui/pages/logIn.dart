@@ -16,7 +16,7 @@ class LogIn extends StatelessWidget {
           decoration: BoxDecoration(
             gradient: LinearGradient(
                 begin: Alignment.topLeft,
-                colors: [Colors.cyan[500], Colors.cyan[200], Colors.cyan[400]]),
+                colors: [Colors.indigo[500], Colors.indigo[300], Colors.indigo[400]]),
           ),
           child: Column(
             children: <Widget>[
@@ -65,7 +65,7 @@ class LogIn extends StatelessWidget {
                 textField(context,
                     icon: Icon(
                       Icons.person,
-                      color: Colors.cyan,
+                      color: Colors.indigo,
                     ),
                     name: 'username',
                     label: 'Username',
@@ -77,7 +77,7 @@ class LogIn extends StatelessWidget {
                 textField(context,
                     icon: Icon(
                       Icons.person,
-                      color: Colors.cyan,
+                      color: Colors.indigo,
                     ),
                     name: 'password',
                     label: 'Password',
@@ -113,7 +113,7 @@ class LogIn extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 50),
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-          color: Colors.cyan[400],
+          color: Colors.indigo[400],
           child: Text(
             'Login',
             style: TextStyle(
@@ -142,7 +142,7 @@ class LogIn extends StatelessWidget {
       obscureText: isPassword,
       obscuringCharacter: '*',
       decoration: InputDecoration(
-          focusColor: Colors.cyan[400],
+          focusColor: Colors.indigo[400],
           icon: icon,
           labelText: label,
           hintText: hint,
@@ -165,7 +165,7 @@ class LogIn extends StatelessWidget {
         ),
         Center(
           child: Text(
-            'Welcome to MY SCHOOL',
+            'Welcome to MY SCHOOL management',
             style: TextStyle(color: Colors.white, fontSize: 18),
           ),
         ),
