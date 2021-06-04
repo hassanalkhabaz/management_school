@@ -38,6 +38,12 @@ class MyDrawer extends StatelessWidget {
               onTap: () {
                 Navigator.of(context).pushNamed('/add_user');
               }),
+          buildListTile(
+              icon: Icon(Icons.home_work),
+              title: 'HomeWorks',
+              onTap: () {
+                Navigator.of(context).pushNamed('/add_homework');
+              }),
         ],
       ),
     );

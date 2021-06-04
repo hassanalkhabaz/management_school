@@ -1,3 +1,4 @@
+import 'package:management_school/ui/pages/add_homeword.dart';
 import 'package:management_school/ui/pages/add_user.dart';
 import 'package:management_school/ui/pages/alerts.dart';
 import 'package:management_school/ui/pages/forgot_password.dart';
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
         '/login': (context) => LogIn(),
         '/forgot_password': (context) => ForgotPassword(),
         '/add_user': (context) => AddUser(),
+        '/add_homework': (context) => AddHomeWork(),
         '/profile': (context) => Profile(),
         '/home': (context) => Home(),
         '/alerts': (context) => Alerts(),
