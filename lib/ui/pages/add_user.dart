@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:management_school/ui/widgets/DropDownField.dart';
 import 'package:management_school/ui/widgets/MyDrawer.dart';
 import 'package:management_school/ui/widgets/fields.dart';
 
@@ -40,17 +41,15 @@ class _AddUserState extends State<AddUser> {
                     onChanged: (str) {},
                   ),
                   FormBuilderDateTimePicker(
+                    name: 'date',
                     inputType: InputType.date,
+                    onChanged: (value) {},
+                    decoration: InputDecoration(hintText: 'Pick date'),
+                    initialDate: DateTime.now(),
                   ),
-                  FormBuilderDropdown(
-                    items: [
-                      DropdownMenuItem(
-                        child: Text("Female"),
-                      ),
-                      DropdownMenuItem(
-                        child: Text("Male"),
-                      ),
-                    ],
+                  DropDownField(
+                    onChange: (val) {},
+                    items: ['first'],
                   ),
                   textField(
                     context,
@@ -91,7 +90,6 @@ class _AddUserState extends State<AddUser> {
                     isPassword: true,
                     onChanged: (str) {},
                   ),
-                  
                 ],
               ),
             ),
