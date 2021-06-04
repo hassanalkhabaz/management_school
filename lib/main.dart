@@ -1,3 +1,4 @@
+import 'package:management_school/ui/pages/add_user.dart';
 import 'package:management_school/ui/pages/alerts.dart';
 import 'package:management_school/ui/pages/forgot_password.dart';
 import 'package:management_school/ui/pages/homeworks.dart';
@@ -12,6 +13,7 @@ import 'package:management_school/ui/pages/home.dart';
 import 'package:management_school/ui/pages/attendance.dart';
 
 import 'package:flutter/material.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -24,6 +26,7 @@ class MyApp extends StatelessWidget {
         '/splash': (context) => Splash(),
         '/login': (context) => LogIn(),
         '/forgot_password': (context) => ForgotPassword(),
+        '/add_user': (context) => AddUser(),
         '/profile': (context) => Profile(),
         '/home': (context) => Home(),
         '/alerts': (context) => Alerts(),
