@@ -14,17 +14,10 @@ class HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(
         title: Text('home'),
-        backgroundColor: Colors.cyan[400],
+        backgroundColor: Colors.indigo[400],
       ),
       drawer: MyDrawer(),
-      body: Column(
-        children: [
-          coloredCard(title: 'Alerts', content:'2', colors: 2),
-          coloredCard(title: 'Activities', content:'0', colors: 3),
-          coloredCard(title: 'Homeworks', content:'1', colors: 4),
-          coloredCard(title: 'Something', content:'4', colors: 1),
-        ],
-      ),
+      body: Container()
     );
   }
 
