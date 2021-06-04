@@ -1,6 +1,6 @@
-import 'package:flu/ui/widgets/InputField.dart';
+import 'package:management_school/ui/widgets/InputField.dart';
 import 'package:flutter/material.dart';
-import 'package:flu/ui/widgets/MyDrawer.dart';
+import 'package:management_school/ui/widgets/MyDrawer.dart';
 
 class ForgotPassword extends StatelessWidget {
   @override

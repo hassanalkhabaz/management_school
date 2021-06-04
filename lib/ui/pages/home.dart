@@ -1,6 +1,5 @@
-import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
-import 'package:flu/ui/widgets/MyDrawer.dart';
+import 'package:management_school/ui/widgets/MyDrawer.dart';
 
 class Home extends StatefulWidget {
   State<StatefulWidget> createState() {

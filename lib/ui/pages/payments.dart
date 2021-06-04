@@ -1,4 +1,4 @@
-import 'package:flu/ui/widgets/CardView.dart';
+import 'package:management_school/ui/widgets/CardView.dart';
 import 'package:flutter/material.dart';
 
 class Payments extends StatefulWidget {

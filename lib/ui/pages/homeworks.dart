@@ -1,6 +1,6 @@
-import 'package:flu/ui/widgets/DropDownField.dart';
+import 'package:management_school/ui/widgets/DropDownField.dart';
 import 'package:flutter/material.dart';
-import 'package:flu/ui/widgets/MyDrawer.dart';
+import 'package:management_school/ui/widgets/MyDrawer.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 
 class Homeworks extends StatefulWidget {
