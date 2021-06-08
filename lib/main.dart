@@ -1,8 +1,10 @@
+import 'package:management_school/ui/pages/add_activity.dart';
 import 'package:management_school/ui/pages/add_homeword.dart';
+import 'package:management_school/ui/pages/add_mark.dart';
+import 'package:management_school/ui/pages/add_programe.dart';
 import 'package:management_school/ui/pages/add_user.dart';
 import 'package:management_school/ui/pages/alerts.dart';
 import 'package:management_school/ui/pages/forgot_password.dart';
-import 'package:management_school/ui/pages/homeworks.dart';
 import 'package:management_school/ui/pages/marks.dart';
 import 'package:management_school/ui/pages/notifications.dart';
 import 'package:management_school/ui/pages/payments.dart';
@@ -29,6 +31,9 @@ class MyApp extends StatelessWidget {
         '/forgot_password': (context) => ForgotPassword(),
         '/add_user': (context) => AddUser(),
         '/add_homework': (context) => AddHomeWork(),
+        '/add_activity': (context) => AddActivity(),
+        '/add_programe': (context) => AddPrograme(),
+        '/add_mark': (context) => AddMark(),
         '/profile': (context) => Profile(),
         '/home': (context) => Home(),
         '/alerts': (context) => Alerts(),
@@ -36,7 +41,6 @@ class MyApp extends StatelessWidget {
         '/marks': (context) => Marks(),
         '/notifications': (context) => Notifications(),
         '/programs': (context) => Programs(),
-        '/homeworks': (context) => Homeworks(),
         '/attendance': (context) => Attendance(),
       },
       home: LogIn(),

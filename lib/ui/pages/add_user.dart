@@ -33,6 +33,7 @@ class _AddUserState extends State<AddUser> {
                     hint: "enter user first name",
                     onChanged: (str) {},
                   ),
+                  SizedBox(height: 20),
                   textField(
                     context,
                     label: "Last name",
@@ -40,16 +41,21 @@ class _AddUserState extends State<AddUser> {
                     hint: "enter user last name",
                     onChanged: (str) {},
                   ),
-                  FormBuilderDateTimePicker(
-                    name: 'date',
-                    inputType: InputType.date,
-                    onChanged: (value) {},
-                    decoration: InputDecoration(hintText: 'Pick date'),
-                    initialDate: DateTime.now(),
-                  ),
+                  SizedBox(height: 20),
+                  datePicker(
+                      hint: "birthday",
+                      name: "birthday",
+                      onChanged: (str) {},
+                      label: "Birthday"),
+                  SizedBox(height: 20),
                   DropDownField(
+                    items: ['f'],
                     onChange: (val) {},
-                    items: ['first'],
+                    hint: "Type",
+                  ),
+                  SizedBox(height: 20),
+                  Divider(
+                    color: Colors.indigo,
                   ),
                   textField(
                     context,
@@ -58,6 +64,7 @@ class _AddUserState extends State<AddUser> {
                     hint: "enter user father name",
                     onChanged: (str) {},
                   ),
+                  SizedBox(height: 20),
                   textField(
                     context,
                     label: "Mother name",
@@ -65,8 +72,9 @@ class _AddUserState extends State<AddUser> {
                     hint: "enter user mother name",
                     onChanged: (str) {},
                   ),
-                  SizedBox(
-                    height: 20,
+                  SizedBox(height: 20),
+                  Divider(
+                    color: Colors.indigo,
                   ),
                   textField(
                     context,
@@ -75,6 +83,7 @@ class _AddUserState extends State<AddUser> {
                     hint: "enter username",
                     onChanged: (str) {},
                   ),
+                  SizedBox(height: 20),
                   textField(
                     context,
                     label: "Email",
@@ -82,6 +91,7 @@ class _AddUserState extends State<AddUser> {
                     hint: "enter user email",
                     onChanged: (str) {},
                   ),
+                  SizedBox(height: 20),
                   textField(
                     context,
                     label: "Password",

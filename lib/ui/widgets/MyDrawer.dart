@@ -44,6 +44,24 @@ class MyDrawer extends StatelessWidget {
               onTap: () {
                 Navigator.of(context).pushNamed('/add_homework');
               }),
+          buildListTile(
+              icon: Icon(Icons.contact_page),
+              title: 'Activities',
+              onTap: () {
+                Navigator.of(context).pushNamed('/add_activity');
+              }),
+          buildListTile(
+              icon: Icon(Icons.rate_review),
+              title: 'Marks',
+              onTap: () {
+                Navigator.of(context).pushNamed('/add_mark');
+              }),
+          buildListTile(
+              icon: Icon(Icons.calendar_today),
+              title: 'Programe',
+              onTap: () {
+                Navigator.of(context).pushNamed('/add_programe');
+              }),
         ],
       ),
     );

@@ -4,17 +4,17 @@ import 'package:management_school/ui/widgets/DropDownField.dart';
 import 'package:management_school/ui/widgets/MyDrawer.dart';
 import 'package:management_school/ui/widgets/fields.dart';
 
-class AddHomeWork extends StatefulWidget {
+class AddActivity extends StatefulWidget {
   @override
-  _AddHomeWorkState createState() => _AddHomeWorkState();
+  _AddActivityState createState() => _AddActivityState();
 }
 
-class _AddHomeWorkState extends State<AddHomeWork> {
+class _AddActivityState extends State<AddActivity> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Add HomeWork'),
+        title: Text('Add activity'),
         backgroundColor: Colors.indigo[400],
       ),
       drawer: MyDrawer(),
@@ -25,22 +25,28 @@ class _AddHomeWorkState extends State<AddHomeWork> {
             child: Column(
               children: [
                 datePicker(
-                  label: "Submitting date",
-                  name: "submitting_date",
-                  onChanged: (str) {},
-                  hint: "homework submitting date"),
+                    label: "Begin date",
+                    name: "Begin_date",
+                    onChanged: (str) {},
+                    hint: "Activity Begin date"),
+                SizedBox(height: 20),
+                datePicker(
+                    label: "end date",
+                    name: "end_date",
+                    onChanged: (str) {},
+                    hint: "Activity end date"),
                 SizedBox(height: 20),
                 DropDownField(
                   onChange: (val) {},
-                  items: ['math', 'arabic'],
+                  items: ['type'],
                 ),
                 SizedBox(height: 20),
                 textField(
                   context,
-                  isNote:true ,
+                  isNote: true,
                   label: "Description",
                   name: "description",
-                  hint: "add homework description",
+                  hint: "add activity description",
                   onChanged: (str) {},
                 ),
               ],
@@ -50,5 +56,4 @@ class _AddHomeWorkState extends State<AddHomeWork> {
       ),
     );
   }
-
 }

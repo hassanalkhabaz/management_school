@@ -13,12 +13,12 @@ class DropDownField extends StatelessWidget {
   Widget build(BuildContext context) {
     return DropdownButtonFormField<String>(
       hint: Text(hint),
-      // decoration: InputDecoration(
-      //   filled: true,
-      //   fillColor: Colors.white,
-      //   border: OutlineInputBorder(borderSide: BorderSide.none),
-      //   contentPadding: EdgeInsets.symmetric(horizontal: 15),
-      // ),
+      decoration: InputDecoration(
+        filled: true,
+        fillColor: Colors.grey[200],
+        border: OutlineInputBorder(borderSide: BorderSide.none),
+        contentPadding: EdgeInsets.symmetric(horizontal: 15),
+      ),
       onChanged: onChange,
       items: items
           .map<DropdownMenuItem<String>>(
