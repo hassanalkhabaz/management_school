@@ -16,7 +16,7 @@ class _AddSectionState extends State<AddSection> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Add Section'),
-        backgroundColor: Colors.blueGrey[600],
+        backgroundColor: Colors.indigo,
       ),
       drawer: MyDrawer(),
       body: SingleChildScrollView(

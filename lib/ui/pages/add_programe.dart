@@ -21,7 +21,7 @@ class _AddProgrameState extends State<AddPrograme> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Add Programe'),
-        backgroundColor: Colors.blueGrey[600],
+        backgroundColor: Colors.indigo,
       ),
       drawer: MyDrawer(),
       body: SingleChildScrollView(

@@ -15,7 +15,7 @@ class _AddHomeWorkState extends State<AddHomeWork> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Add HomeWork'),
-        backgroundColor: Colors.blueGrey[600],
+        backgroundColor: Colors.indigo,
       ),
       drawer: MyDrawer(),
       body: SingleChildScrollView(

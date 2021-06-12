@@ -17,7 +17,7 @@ class _AddUserState extends State<AddUser> {
     return Scaffold(
         appBar: AppBar(
           title: Text('Add User'),
-          backgroundColor: Colors.blueGrey[600],
+          backgroundColor: Colors.indigo,
         ),
         drawer: MyDrawer(),
         body: SingleChildScrollView(

@@ -16,7 +16,7 @@ class MyDrawer extends StatelessWidget {
             accountName: Text('hassan'),
             accountEmail: (Text('hassan@gmail.com ')),
             currentAccountPicture: (CircleAvatar(
-              backgroundColor: Colors.indigo[600],
+              backgroundColor: Colors.indigo,
               child: Icon(Icons.person),
             )),
             decoration: BoxDecoration(

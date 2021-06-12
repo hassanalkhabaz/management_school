@@ -15,7 +15,7 @@ class _AddClassState extends State<AddClass> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Add Class'),
-        backgroundColor: Colors.blueGrey[600],
+        backgroundColor: Colors.indigo,
       ),
       drawer: MyDrawer(),
       body: SingleChildScrollView(

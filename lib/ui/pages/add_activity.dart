@@ -14,7 +14,7 @@ class _AddActivityState extends State<AddActivity> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Add activity'),
-        backgroundColor: Colors.blueGrey[600],
+        backgroundColor: Colors.indigo,
       ),
       drawer: MyDrawer(),
       body: SingleChildScrollView(

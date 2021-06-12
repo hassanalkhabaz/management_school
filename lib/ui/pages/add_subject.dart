@@ -15,7 +15,7 @@ class _AddSubjectState extends State<AddSubject> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Add Subject'),
-        backgroundColor: Colors.blueGrey[600],
+        backgroundColor: Colors.indigo,
       ),
       drawer: MyDrawer(),
       body: SingleChildScrollView(
