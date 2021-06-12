@@ -1,7 +1,10 @@
 import 'package:management_school/ui/pages/add_activity.dart';
+import 'package:management_school/ui/pages/add_class.dart';
 import 'package:management_school/ui/pages/add_homeword.dart';
 import 'package:management_school/ui/pages/add_mark.dart';
 import 'package:management_school/ui/pages/add_programe.dart';
+import 'package:management_school/ui/pages/add_section.dart';
+import 'package:management_school/ui/pages/add_subject.dart';
 import 'package:management_school/ui/pages/add_user.dart';
 import 'package:management_school/ui/pages/alerts.dart';
 import 'package:management_school/ui/pages/forgot_password.dart';
@@ -34,6 +37,9 @@ class MyApp extends StatelessWidget {
         '/add_activity': (context) => AddActivity(),
         '/add_programe': (context) => AddPrograme(),
         '/add_mark': (context) => AddMark(),
+        '/add_class': (context) => AddClass(),
+        '/add_section': (context) => AddSection(),
+        '/add_subject': (context) => AddSubject(),
         '/profile': (context) => Profile(),
         '/home': (context) => Home(),
         '/alerts': (context) => Alerts(),

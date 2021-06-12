@@ -38,17 +38,36 @@ class MyDrawer extends StatelessWidget {
               onTap: () {
                 Navigator.of(context).pushNamed('/add_user');
               }),
+
           buildListTile(
-              icon: Icon(Icons.home_work),
-              title: 'HomeWorks',
+              icon: Icon(Icons.class_),
+              title: 'Classes',
               onTap: () {
-                Navigator.of(context).pushNamed('/add_homework');
+                Navigator.of(context).pushNamed('/add_class');
+              }),
+          buildListTile(
+              icon: Icon(Icons.business_outlined),
+              title: 'Sections',
+              onTap: () {
+                Navigator.of(context).pushNamed('/add_section');
+              }),
+          buildListTile(
+              icon: Icon(Icons.subject),
+              title: 'Subjects',
+              onTap: () {
+                Navigator.of(context).pushNamed('/add_subject');
               }),
           buildListTile(
               icon: Icon(Icons.contact_page),
               title: 'Activities',
               onTap: () {
                 Navigator.of(context).pushNamed('/add_activity');
+              }),
+          buildListTile(
+              icon: Icon(Icons.home_work),
+              title: 'HomeWorks',
+              onTap: () {
+                Navigator.of(context).pushNamed('/add_homework');
               }),
           buildListTile(
               icon: Icon(Icons.rate_review),
