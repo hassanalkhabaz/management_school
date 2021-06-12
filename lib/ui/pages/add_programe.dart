@@ -2,8 +2,10 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:management_school/ui/widgets/DropDownField.dart';
 import 'package:management_school/ui/widgets/MyDrawer.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:management_school/ui/widgets/fields.dart';
 
 class AddPrograme extends StatefulWidget {
   @override
@@ -19,7 +21,7 @@ class _AddProgrameState extends State<AddPrograme> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Add Programe'),
-        backgroundColor: Colors.indigo[400],
+        backgroundColor: Colors.blueGrey[600],
       ),
       drawer: MyDrawer(),
       body: SingleChildScrollView(
@@ -66,6 +68,21 @@ class _AddProgrameState extends State<AddPrograme> {
                   onPressed: () {
                     getImage();
                   },
+                ),
+                SizedBox(height: 20),
+                textField(
+                  context,
+                  isNote: true,
+                  label: "Programe name",
+                  name: "programe_name",
+                  hint: "add programe name",
+                  onChanged: (str) {},
+                ),
+                SizedBox(height: 20),
+                DropDownField(
+                  onChange: (val) {},
+                  items: ['s1', 's2'],
+                  hint: 'Section',
                 ),
               ],
             ),

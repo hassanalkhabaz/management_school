@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
-import 'package:management_school/ui/widgets/DropDownField.dart';
 import 'package:management_school/ui/widgets/MyDrawer.dart';
 import 'package:management_school/ui/widgets/fields.dart';
 
@@ -15,7 +14,7 @@ class _AddActivityState extends State<AddActivity> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Add activity'),
-        backgroundColor: Colors.indigo[400],
+        backgroundColor: Colors.blueGrey[600],
       ),
       drawer: MyDrawer(),
       body: SingleChildScrollView(
@@ -36,9 +35,12 @@ class _AddActivityState extends State<AddActivity> {
                     onChanged: (str) {},
                     hint: "Activity end date"),
                 SizedBox(height: 20),
-                DropDownField(
-                  onChange: (val) {},
-                  items: ['type'],
+                textField(
+                  context,
+                  label: "Activity type",
+                  name: "activity_type",
+                  hint: "enter activity type",
+                  onChanged: (str) {},
                 ),
                 SizedBox(height: 20),
                 textField(

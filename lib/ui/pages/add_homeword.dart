@@ -15,7 +15,7 @@ class _AddHomeWorkState extends State<AddHomeWork> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Add HomeWork'),
-        backgroundColor: Colors.indigo[400],
+        backgroundColor: Colors.blueGrey[600],
       ),
       drawer: MyDrawer(),
       body: SingleChildScrollView(
@@ -25,19 +25,26 @@ class _AddHomeWorkState extends State<AddHomeWork> {
             child: Column(
               children: [
                 datePicker(
-                  label: "Submitting date",
-                  name: "submitting_date",
-                  onChanged: (str) {},
-                  hint: "homework submitting date"),
+                    label: "Submitting date",
+                    name: "submitting_date",
+                    onChanged: (str) {},
+                    hint: "homework submitting date"),
+                SizedBox(height: 20),
+                DropDownField(
+                  onChange: (val) {},
+                  items: ['section1', 'section2'],
+                  hint: 'Section',
+                ),
                 SizedBox(height: 20),
                 DropDownField(
                   onChange: (val) {},
                   items: ['math', 'arabic'],
+                  hint: 'Subject',
                 ),
                 SizedBox(height: 20),
                 textField(
                   context,
-                  isNote:true ,
+                  isNote: true,
                   label: "Description",
                   name: "description",
                   hint: "add homework description",
@@ -50,5 +57,4 @@ class _AddHomeWorkState extends State<AddHomeWork> {
       ),
     );
   }
-
 }

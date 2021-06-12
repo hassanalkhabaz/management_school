@@ -15,7 +15,7 @@ class _AddMarkState extends State<AddMark> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Add mark'),
-        backgroundColor: Colors.indigo[400],
+        backgroundColor: Colors.blueGrey[600],
       ),
       drawer: MyDrawer(),
       body: SingleChildScrollView(
@@ -25,14 +25,20 @@ class _AddMarkState extends State<AddMark> {
             child: Column(
               children: [
                 DropDownField(
-                  hint: "Student",
-                  items: ['student'],
+                  hint: "Class",
+                  items: ['class1'],
                   onChange: (val) {},
                 ),
                 SizedBox(height: 20),
                 DropDownField(
                   hint: "Subject",
                   items: ['subject'],
+                  onChange: (val) {},
+                ),
+                SizedBox(height: 20),
+                DropDownField(
+                  hint: "Student",
+                  items: ['student'],
                   onChange: (val) {},
                 ),
                 SizedBox(height: 20),

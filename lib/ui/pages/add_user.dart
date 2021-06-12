@@ -17,7 +17,7 @@ class _AddUserState extends State<AddUser> {
     return Scaffold(
         appBar: AppBar(
           title: Text('Add User'),
-          backgroundColor: Colors.indigo[400],
+          backgroundColor: Colors.blueGrey[600],
         ),
         drawer: MyDrawer(),
         body: SingleChildScrollView(
@@ -49,9 +49,9 @@ class _AddUserState extends State<AddUser> {
                       label: "Birthday"),
                   SizedBox(height: 20),
                   DropDownField(
-                    items: ['f'],
+                    items: ['female', 'male'],
                     onChange: (val) {},
-                    hint: "Type",
+                    hint: "Gender",
                   ),
                   SizedBox(height: 20),
                   Divider(
@@ -78,18 +78,51 @@ class _AddUserState extends State<AddUser> {
                   ),
                   textField(
                     context,
+                    label: "Phone number",
+                    name: "phone_number",
+                    hint: "enter user phone number",
+                    onChanged: (str) {},
+                  ),
+                  SizedBox(height: 20),
+                  textField(
+                    context,
+                    label: "Home number",
+                    name: "home_number",
+                    hint: "enter user home number",
+                    onChanged: (str) {},
+                  ),
+                  SizedBox(height: 20),
+                  textField(
+                    context,
+                    label: "Mother phone number",
+                    name: "mother_phonenumber",
+                    hint: "enter mother phone number",
+                    onChanged: (str) {},
+                  ),
+                  SizedBox(height: 20),
+                  textField(
+                    context,
+                    label: "Father phone number",
+                    name: "father_phonenumber",
+                    hint: "enter father phone number",
+                    onChanged: (str) {},
+                  ),
+                  SizedBox(height: 20),
+                  Divider(
+                    color: Colors.indigo,
+                  ),
+                  textField(
+                    context,
                     label: "Username",
                     name: "username",
                     hint: "enter username",
                     onChanged: (str) {},
                   ),
                   SizedBox(height: 20),
-                  textField(
-                    context,
-                    label: "Email",
-                    name: "email",
-                    hint: "enter user email",
-                    onChanged: (str) {},
+                  DropDownField(
+                    items: ['s1', 's2'],
+                    onChange: (val) {},
+                    hint: "Section",
                   ),
                   SizedBox(height: 20),
                   textField(
