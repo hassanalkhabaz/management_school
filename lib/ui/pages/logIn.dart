@@ -16,9 +16,9 @@ class LogIn extends StatelessWidget {
           width: double.infinity,
           decoration: BoxDecoration(
             gradient: LinearGradient(begin: Alignment.topLeft, colors: [
-              Colors.indigo[500],
-              Colors.indigo[300],
-              Colors.indigo[400]
+              Colors.blueGrey[600],
+              Colors.blueGrey[600],
+              Colors.blueGrey[600]
             ]),
           ),
           child: Column(
@@ -118,7 +118,7 @@ class LogIn extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 50),
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-          color: Colors.indigo[400],
+          color: Colors.blueGrey[600],
           child: Text(
             'Login',
             style: TextStyle(
