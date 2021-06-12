@@ -1,0 +1,20 @@
+new screens (2500):
+    - add activity
+    - add homeword
+    - add mark
+    - add programe
+    - add subject
+    -- users 
+        - list users
+        - add user
+        - user settings
+    -- classes
+        - list classes
+        - add class
+    -- sections
+        - list sections
+        - add section
+
+fixed screens (1500):
+    - login
+    - forget password

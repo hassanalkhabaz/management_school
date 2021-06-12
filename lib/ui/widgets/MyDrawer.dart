@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:management_school/ui/pages/LogIn.dart';
 
 class MyDrawer extends StatelessWidget {
   @override
@@ -36,20 +35,20 @@ class MyDrawer extends StatelessWidget {
               icon: Icon(Icons.group),
               title: 'Users',
               onTap: () {
-                Navigator.of(context).pushNamed('/list_user');
+                Navigator.of(context).pushNamed('/list_users');
               }),
 
           buildListTile(
               icon: Icon(Icons.class_),
               title: 'Classes',
               onTap: () {
-                Navigator.of(context).pushNamed('/add_class');
+                Navigator.of(context).pushNamed('/list_classes');
               }),
           buildListTile(
               icon: Icon(Icons.business_outlined),
               title: 'Sections',
               onTap: () {
-                Navigator.of(context).pushNamed('/add_section');
+                Navigator.of(context).pushNamed('/list_sections');
               }),
           buildListTile(
               icon: Icon(Icons.subject),
