@@ -10,7 +10,7 @@ Widget CustomButton({@required Function onPressed, @required String title}) {
     child: Text(
       title,
       style: TextStyle(
-          color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+          color: Colors.white, fontSize: 15, fontWeight: FontWeight.bold),
     ),
   );
 }

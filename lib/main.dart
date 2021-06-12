@@ -5,7 +5,7 @@ import 'package:management_school/ui/pages/add_mark.dart';
 import 'package:management_school/ui/pages/add_programe.dart';
 import 'package:management_school/ui/pages/add_section.dart';
 import 'package:management_school/ui/pages/add_subject.dart';
-import 'package:management_school/ui/pages/add_user.dart';
+import 'package:management_school/ui/pages/user/add_user.dart';
 import 'package:management_school/ui/pages/alerts.dart';
 import 'package:management_school/ui/pages/forgot_password.dart';
 import 'package:management_school/ui/pages/marks.dart';
@@ -19,6 +19,8 @@ import 'package:management_school/ui/pages/home.dart';
 import 'package:management_school/ui/pages/attendance.dart';
 
 import 'package:flutter/material.dart';
+import 'package:management_school/ui/pages/user/list_users.dart';
+import 'package:management_school/ui/pages/user/user_settings.dart';
 
 void main() => runApp(MyApp());
 
@@ -32,7 +34,11 @@ class MyApp extends StatelessWidget {
         '/splash': (context) => Splash(),
         '/login': (context) => LogIn(),
         '/forgot_password': (context) => ForgotPassword(),
+        
         '/add_user': (context) => AddUser(),
+        '/list_user': (context) => ListUsers(),
+        '/user_settings': (context) => UserSettings(),
+
         '/add_homework': (context) => AddHomeWork(),
         '/add_activity': (context) => AddActivity(),
         '/add_programe': (context) => AddPrograme(),

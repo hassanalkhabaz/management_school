@@ -36,7 +36,7 @@ class MyDrawer extends StatelessWidget {
               icon: Icon(Icons.group),
               title: 'Users',
               onTap: () {
-                Navigator.of(context).pushNamed('/add_user');
+                Navigator.of(context).pushNamed('/list_user');
               }),
 
           buildListTile(
