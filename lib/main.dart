@@ -1,4 +1,7 @@
 import 'package:management_school/ui/pages/add_activity.dart';
+import 'package:management_school/ui/pages/add_alerts.dart';
+import 'package:management_school/ui/pages/add_payment.dart';
+import 'package:management_school/ui/pages/attendance.dart';
 import 'package:management_school/ui/pages/class/add_class.dart';
 import 'package:management_school/ui/pages/add_homeword.dart';
 import 'package:management_school/ui/pages/add_mark.dart';
@@ -48,6 +51,9 @@ class MyApp extends StatelessWidget {
         '/add_activity': (context) => AddActivity(),
         '/add_programe': (context) => AddPrograme(),
         '/add_mark': (context) => AddMark(),
+        '/add_alert': (context) => AddAlert(),
+        '/add_payment': (context) => AddPayment(),
+        '/attendance': (context) => Attendance(),
 
         '/add_subject': (context) => AddSubject(),
         '/home': (context) => Home(),

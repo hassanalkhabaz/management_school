@@ -9,9 +9,6 @@ class MyDrawer extends StatelessWidget {
       child: ListView(
         children: [
           UserAccountsDrawerHeader(
-            onDetailsPressed: () {
-              Navigator.of(context).pushNamed('/profile');
-            },
             accountName: Text('hassan'),
             accountEmail: (Text('hassan@gmail.com ')),
             currentAccountPicture: (CircleAvatar(
@@ -57,6 +54,18 @@ class MyDrawer extends StatelessWidget {
                 Navigator.of(context).pushNamed('/add_subject');
               }),
           buildListTile(
+              icon: Icon(Icons.check),
+              title: 'Attendance',
+              onTap: () {
+                Navigator.of(context).pushNamed('/attendance');
+              }),
+          buildListTile(
+              icon: Icon(Icons.warning_amber_rounded),
+              title: 'Alerts',
+              onTap: () {
+                Navigator.of(context).pushNamed('/add_alert');
+              }),
+          buildListTile(
               icon: Icon(Icons.contact_page),
               title: 'Activities',
               onTap: () {
@@ -77,6 +86,19 @@ class MyDrawer extends StatelessWidget {
           buildListTile(
               icon: Icon(Icons.calendar_today),
               title: 'Programe',
+              onTap: () {
+                Navigator.of(context).pushNamed('/add_programe');
+              }),
+          buildListTile(
+              icon: Icon(Icons.monetization_on_outlined),
+              title: 'Payments',
+              onTap: () {
+                Navigator.of(context).pushNamed('/add_payment');
+              }),
+          Divider(height: 10, thickness: 1.5),
+          buildListTile(
+              icon: Icon(Icons.power_settings_new),
+              title: 'Logout',
               onTap: () {
                 Navigator.of(context).pushNamed('/add_programe');
               }),

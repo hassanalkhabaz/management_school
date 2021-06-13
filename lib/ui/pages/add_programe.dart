@@ -5,6 +5,7 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:management_school/ui/widgets/DropDownField.dart';
 import 'package:management_school/ui/widgets/MyDrawer.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:management_school/ui/widgets/custom_button.dart';
 import 'package:management_school/ui/widgets/fields.dart';
 
 class AddPrograme extends StatefulWidget {
@@ -84,6 +85,8 @@ class _AddProgrameState extends State<AddPrograme> {
                   items: ['s1', 's2'],
                   hint: 'Section',
                 ),
+                SizedBox(height: 20),
+                CustomButton(onPressed: () {}, title: 'Add Programe'),
               ],
             ),
           ),

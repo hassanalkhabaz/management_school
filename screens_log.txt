@@ -4,6 +4,9 @@ new screens (2500):
     - add mark
     - add programe
     - add subject
+    - add alert
+    - add payment
+    - add attendance
     -- users 
         - list users
         - add user

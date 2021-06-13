@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:management_school/ui/widgets/DropDownField.dart';
 import 'package:management_school/ui/widgets/MyDrawer.dart';
 import 'package:management_school/ui/widgets/custom_button.dart';
 import 'package:management_school/ui/widgets/fields.dart';
 
-class AddSubject extends StatefulWidget {
+class AddPayment extends StatefulWidget {
   @override
-  _AddSubjectState createState() => _AddSubjectState();
+  _AddPaymentState createState() => _AddPaymentState();
 }
 
-class _AddSubjectState extends State<AddSubject> {
+class _AddPaymentState extends State<AddPayment> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Add Subject'),
+        title: Text('Add Payment'),
         backgroundColor: Colors.indigo,
       ),
       drawer: MyDrawer(),
@@ -26,13 +27,25 @@ class _AddSubjectState extends State<AddSubject> {
               children: [
                 textField(
                   context,
-                  label: "Subject name",
-                  name: "subject_name",
-                  hint: "Enter subject name",
+                  label: "Paid",
+                  name: "paid",
+                  hint: "add a payment",
                   onChanged: (str) {},
                 ),
                 SizedBox(height: 20),
-                CustomButton(onPressed: () {}, title: 'Add Subject'),
+                DropDownField(
+                  hint: "Section",
+                  items: ['section1'],
+                  onChange: (val) {},
+                ),
+                SizedBox(height: 20),
+                DropDownField(
+                  hint: "Student",
+                  items: ['student'],
+                  onChange: (val) {},
+                ),
+                SizedBox(height: 20),
+                CustomButton(onPressed: () {}, title: 'Add Payment'),
               ],
             ),
           ),

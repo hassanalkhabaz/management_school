@@ -5,17 +5,17 @@ import 'package:management_school/ui/widgets/MyDrawer.dart';
 import 'package:management_school/ui/widgets/custom_button.dart';
 import 'package:management_school/ui/widgets/fields.dart';
 
-class AddHomeWork extends StatefulWidget {
+class Attendance extends StatefulWidget {
   @override
-  _AddHomeWorkState createState() => _AddHomeWorkState();
+  _AttendanceState createState() => _AttendanceState();
 }
 
-class _AddHomeWorkState extends State<AddHomeWork> {
+class _AttendanceState extends State<Attendance> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Add HomeWork'),
+        title: Text('Add Attendance'),
         backgroundColor: Colors.indigo,
       ),
       drawer: MyDrawer(),
@@ -25,34 +25,27 @@ class _AddHomeWorkState extends State<AddHomeWork> {
             padding: const EdgeInsets.all(20.0),
             child: Column(
               children: [
-                datePicker(
-                    label: "Submitting date",
-                    name: "submitting_date",
-                    onChanged: (str) {},
-                    hint: "homework submitting date"),
-                SizedBox(height: 20),
                 DropDownField(
+                  hint: "Section",
+                  items: ['section1'],
                   onChange: (val) {},
-                  items: ['section1', 'section2'],
-                  hint: 'Section',
                 ),
                 SizedBox(height: 20),
                 DropDownField(
+                  hint: "Student",
+                  items: ['student'],
                   onChange: (val) {},
-                  items: ['math', 'arabic'],
-                  hint: 'Subject',
                 ),
                 SizedBox(height: 20),
-                textField(
-                  context,
-                  isNote: true,
-                  label: "Description",
-                  name: "description",
-                  hint: "add homework description",
-                  onChanged: (str) {},
+                FormBuilderCheckbox(
+                  name: 'attendance',
+                  title: Text('Is Attandees'),
+                  initialValue: false,
+                  selected: false,
+                  decoration: InputDecoration(border: InputBorder.none),
                 ),
                 SizedBox(height: 20),
-                CustomButton(onPressed: () {}, title: 'Add Homework'),
+                CustomButton(onPressed: () {}, title: 'Add Attendance'),
               ],
             ),
           ),

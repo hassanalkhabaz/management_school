@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:management_school/ui/widgets/MyDrawer.dart';
+import 'package:management_school/ui/widgets/custom_button.dart';
 import 'package:management_school/ui/widgets/fields.dart';
 
 class AddActivity extends StatefulWidget {
@@ -51,6 +52,8 @@ class _AddActivityState extends State<AddActivity> {
                   hint: "add activity description",
                   onChanged: (str) {},
                 ),
+                SizedBox(height: 20),
+                CustomButton(onPressed: () {}, title: 'Add Activity'),
               ],
             ),
           ),

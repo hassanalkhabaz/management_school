@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:management_school/ui/widgets/DropDownField.dart';
 import 'package:management_school/ui/widgets/MyDrawer.dart';
+import 'package:management_school/ui/widgets/custom_button.dart';
 import 'package:management_school/ui/widgets/fields.dart';
 
 class AddMark extends StatefulWidget {
@@ -51,10 +52,12 @@ class _AddMarkState extends State<AddMark> {
                 textField(
                   context,
                   label: "Mark",
-                  name: "Mark",
+                  name: "mark",
                   hint: "student mark",
                   onChanged: (str) {},
                 ),
+                SizedBox(height: 20),
+                CustomButton(onPressed: () {}, title: 'Add Mark'),
               ],
             ),
           ),

@@ -121,7 +121,13 @@ class _AddUserState extends State<AddUser> {
                   ),
                   SizedBox(height: 20),
                   DropDownField(
-                    items: ['s1', 's2'],
+                    items: ['student', 'teacher'],
+                    onChange: (val) {},
+                    hint: "Type",
+                  ),
+                  SizedBox(height: 20),
+                  DropDownField(
+                    items: ['student', 'teacher'],
                     onChange: (val) {},
                     hint: "Section",
                   ),
