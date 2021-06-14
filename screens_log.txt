@@ -8,28 +8,33 @@ new screens (2500):
         - add alert
     -- auth
         - login
-        - 
-    - add mark
-    - add programe
-    - add subject
-    - add attendance
+        - reset pass
+    -- classes
+        - list classes
+        - add class
+    -- homework
+        - list homeworks
+        - add homework
+    -- mark
+        - add mark
+        - add mark type
+    -- payment
+        - list payments
+        - add payment
+    -- sections
+        - list sections
+        - add section
+    -- subject
+        - list subject
+        - add subject
+        - add subject to teacher
     -- users 
         - list users
         - add user
         - user settings
-    -- classes
-        - list classes
-        - add class
-    -- sections
-        - list sections
-        - add section
-    -- payment
-        - list payments
-        - add payment
-    -- homework
-        - list homeworks
-        - add homework
-
+    - add programe
+    - attendance
+    - home 
 fixed screens (1500):
     - login
     - forget password
