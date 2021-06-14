@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
+import 'package:management_school/model/activity_model.dart';
 import 'package:management_school/model/class_model.dart';
 import 'package:management_school/model/dropdown_response.dart';
 import 'package:management_school/model/login_model.dart';
@@ -8,6 +9,7 @@ import 'package:management_school/model/section_model.dart';
 import 'package:management_school/model/user_model.dart';
 import 'package:management_school/my_cache.dart';
 import 'package:http_parser/http_parser.dart';
+import 'package:management_school/ui/pages/activity/list_activity.dart';
 
 class ApiHelper {
   final String _baseUrl = "78.47.183.107:5000";
@@ -166,7 +168,19 @@ class ApiHelper {
   }
 
   //? activity section
+Future<List<ActivityModel>> listActivity() async {
+    final url = Uri.http(_baseUrl, '/api/School/GetActVac');
+    var accessToken = await MyCache.getString('token');
 
+    print("url: $url");
+    final response = await http.get(
+      url,
+      headers: {'Authorization': 'Bearer $accessToken'},
+    ).timeout(Duration(seconds: _requestTimeout));
+
+    return activityModelFromJson(response.body);
+  }
+  
   //TODO: Begin Date!!
   Future<bool> createActivity(
       {String description, String typeOf, String endDate}) async {

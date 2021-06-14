@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:management_school/model/activity_model.dart';
 import 'package:management_school/ui/widgets/MyDrawer.dart';
 
 class ListActivity extends StatefulWidget {
@@ -14,12 +15,27 @@ class _ListActivityState extends State<ListActivity> {
           title: Text('All Activities'),
           backgroundColor: Colors.indigo,
         ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            Navigator.of(context).pushNamed('/add_activity');
-          },
-          backgroundColor: Colors.indigo,
-          child: Icon(Icons.add),
+        floatingActionButton: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            IconButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed('/activity_to_section');
+              },
+              color: Colors.indigo[300],
+              icon: Icon(Icons.more_vert_sharp),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            FloatingActionButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed('/add_activity');
+              },
+              backgroundColor: Colors.indigo,
+              child: Icon(Icons.add),
+            ),
+          ],
         ),
         drawer: MyDrawer(),
         body: ListView.separated(
@@ -32,25 +48,31 @@ class _ListActivityState extends State<ListActivity> {
             );
           },
           itemBuilder: (context, index) {
-            return activityTile(
-              beginDate: 'date',
-              endDate: 'date',
-              description: 'date',
-              type: 'date',
-            );
+            return activityTile(fakeData);
           },
         ));
   }
 
-  Widget activityTile({String beginDate, String endDate, String description, String type}) {
+/////
+  var fakeData = ActivityModel(
+      description: "description here",
+      id: 1,
+      endDate: DateTime.now(),
+      startDate: DateTime.now());
+  ////
+  Widget activityTile(ActivityModel activity) {
     return ListTile(
-      title: Text("Begin date: $beginDate"),
+      title: Text("Id: ${activity.id}"),
       subtitle: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("Type: $type"),
-          Text("Description: $description"),
-          Text("End date: $endDate"),
+          Text(
+            "Type: ${activity.typeOf}",
+            style: TextStyle(color: Colors.indigo[300]),
+          ),
+          Text("Description: ${activity.description}"),
+          Text("Begin date: ${activity.startDate}"),
+          Text("End date: ${activity.endDate}"),
         ],
       ),
     );
