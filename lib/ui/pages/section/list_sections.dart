@@ -29,14 +29,19 @@ class _ListSectionsState extends State<ListSections> {
           return Divider(height: 1, thickness: 1.5);
         },
         itemBuilder: (context, index) {
-          return sectionTile(name: 'Section name');
+          return sectionTile(
+              name: 'Section name',
+              onTap: () {
+                Navigator.of(context).pushNamed('/update_section');
+              });
         },
       ),
     );
   }
 
-  ListTile sectionTile({String name}) {
+  ListTile sectionTile({String name, onTap}) {
     return ListTile(
+      onTap: onTap,
       title: Text(name),
       // trailing: Icon(Icons.arrow_forward_ios),
     );

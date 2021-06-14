@@ -29,14 +29,20 @@ class _ListAlertsState extends State<ListAlerts> {
           return Divider(height: 1, thickness: 1.5);
         },
         itemBuilder: (context, index) {
-          return alertTile(alertReason: 'reason', date: '12-06-2021');
+          return alertTile(
+              alertReason: 'reason',
+              date: '12-06-2021',
+              onTap: () {
+                Navigator.of(context).pushNamed('/update_alert');
+              });
         },
       ),
     );
   }
 
-  ListTile alertTile({String alertReason, String date}) {
+  ListTile alertTile({String alertReason, String date, onTap}) {
     return ListTile(
+      onTap: onTap,
       title: Text(date),
       subtitle: Text(
         "Reason: $alertReason",

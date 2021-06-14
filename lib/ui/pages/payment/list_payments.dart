@@ -30,14 +30,21 @@ class _ListPaymentsState extends State<ListPayments> {
         },
         itemBuilder: (context, index) {
           return paymentTile(
-              paidFees: '200000', unPaidFees: '30000', paidDate: '12-06-2021');
+              paidFees: '200000',
+              unPaidFees: '30000',
+              paidDate: '12-06-2021',
+              onTap: () {
+                Navigator.of(context).pushNamed('/update_payment');
+              });
         },
       ),
     );
   }
 
-  ListTile paymentTile({String paidFees, String unPaidFees, String paidDate}) {
+  ListTile paymentTile(
+      {String paidFees, String unPaidFees, String paidDate, onTap}) {
     return ListTile(
+      onTap: onTap,
       title: Text(paidDate),
       subtitle: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

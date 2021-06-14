@@ -48,7 +48,9 @@ class _ListSubjectsState extends State<ListSubjects> {
             );
           },
           itemBuilder: (context, index) {
-            return subjectTile(fakeData);
+            return subjectTile(fakeData, onTap: () {
+              Navigator.of(context).pushNamed('/update_subject');
+            });
           },
         ));
   }
@@ -56,8 +58,9 @@ class _ListSubjectsState extends State<ListSubjects> {
   /////
   var fakeData = SubjectModel(id: 1, name: "subjest name");
   ////
-  Widget subjectTile(SubjectModel subject) {
+  Widget subjectTile(SubjectModel subject, {onTap}) {
     return ListTile(
+      onTap: onTap,
       title: Text("Id: ${subject.id}"),
       subtitle: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
