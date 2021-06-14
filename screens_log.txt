@@ -1,11 +1,17 @@
 new screens (2500):
-    - add activity
-    - add homeword
+    -- activity
+        - list activities
+        - add activity
+        - add activity to section
+    -- alerts
+        - list alerts
+        - add alert
+    -- auth
+        - login
+        - 
     - add mark
     - add programe
     - add subject
-    - add alert
-    - add payment
     - add attendance
     -- users 
         - list users
@@ -17,9 +23,12 @@ new screens (2500):
     -- sections
         - list sections
         - add section
-    -- alerts
-        - list_alerts
-        - add_
+    -- payment
+        - list payments
+        - add payment
+    -- homework
+        - list homeworks
+        - add homework
 
 fixed screens (1500):
     - login

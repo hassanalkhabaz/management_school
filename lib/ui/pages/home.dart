@@ -17,7 +17,14 @@ class HomeState extends State<Home> {
         backgroundColor: Colors.indigo[400],
       ),
       drawer: MyDrawer(),
-      body: Container()
+      body: Column(
+        children: [
+          coloredCard(title: 'Alerts', content: '2', colors: 2),
+          coloredCard(title: 'Activities', content: '0', colors: 3),
+          coloredCard(title: 'Homeworks', content: '1', colors: 4),
+          coloredCard(title: 'Something', content: '4', colors: 1),
+        ],
+      ),
     );
   }
 
