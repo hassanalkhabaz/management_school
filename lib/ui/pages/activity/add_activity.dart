@@ -16,8 +16,12 @@ class _AddActivityState extends State<AddActivity> {
       appBar: AppBar(
         title: Text('Add activity'),
         backgroundColor: Colors.indigo,
+        leading: IconButton(
+            icon: Icon(Icons.arrow_back_ios_rounded),
+            onPressed: () => Navigator.of(context).pop(),
+          ),
       ),
-      drawer: MyDrawer(),
+      
       body: SingleChildScrollView(
         child: FormBuilder(
           child: Padding(

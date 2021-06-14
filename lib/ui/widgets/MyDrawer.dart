@@ -69,7 +69,7 @@ class MyDrawer extends StatelessWidget {
               icon: Icon(Icons.contact_page),
               title: 'Activities',
               onTap: () {
-                Navigator.of(context).pushNamed('/add_activity');
+                Navigator.of(context).pushNamed('/list_activity');
               }),
           buildListTile(
               icon: Icon(Icons.home_work),
