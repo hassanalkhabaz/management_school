@@ -1,17 +1,23 @@
 import 'package:management_school/ui/pages/activity/activity_to_section.dart';
 import 'package:management_school/ui/pages/activity/add_activity.dart';
-import 'package:management_school/ui/pages/activity/list_activity.dart';
-import 'package:management_school/ui/pages/add_alerts.dart';
-import 'package:management_school/ui/pages/add_payment.dart';
+import 'package:management_school/ui/pages/activity/list_activities.dart';
+import 'package:management_school/ui/pages/alert/add_alerts.dart';
+import 'package:management_school/ui/pages/homework/list_homework.dart';
+import 'package:management_school/ui/pages/mark/add_mark_type.dart';
+import 'package:management_school/ui/pages/payment/add_payment.dart';
+import 'package:management_school/ui/pages/alert/list_alerts.dart';
 import 'package:management_school/ui/pages/attendance.dart';
 import 'package:management_school/ui/pages/class/add_class.dart';
-import 'package:management_school/ui/pages/add_homeword.dart';
-import 'package:management_school/ui/pages/add_mark.dart';
+import 'package:management_school/ui/pages/homework/add_homeword.dart';
+import 'package:management_school/ui/pages/mark/add_mark.dart';
 import 'package:management_school/ui/pages/add_programe.dart';
-import 'package:management_school/ui/pages/add_subject.dart';
 import 'package:management_school/ui/pages/class/list_classes.dart';
+import 'package:management_school/ui/pages/payment/list_payments.dart';
+import 'package:management_school/ui/pages/subject/add_subject.dart';
+import 'package:management_school/ui/pages/subject/list_subjects.dart';
 import 'package:management_school/ui/pages/section/add_section.dart';
 import 'package:management_school/ui/pages/section/list_sections.dart';
+import 'package:management_school/ui/pages/subject/subject_to_teacher.dart';
 import 'package:management_school/ui/pages/user/add_user.dart';
 import 'package:management_school/ui/pages/auth/forgot_password.dart';
 import 'package:management_school/ui/pages/auth/logIn.dart';
@@ -51,18 +57,34 @@ class MyApp extends StatelessWidget {
 
         ///
         '/add_activity': (context) => AddActivity(),
-        '/list_activity': (context) => ListActivity(),
+        '/list_activity': (context) => ListActivities(),
         '/activity_to_section': (context) => ActivityToSection(),
 
         ///
-        '/add_homework': (context) => AddHomeWork(),
-        '/add_programe': (context) => AddPrograme(),
-        '/add_mark': (context) => AddMark(),
+        '/list_subject': (context) => ListSubjects(),
+        '/add_subject': (context) => AddSubject(),
+        '/subject_to_teacher': (context) => SubjectToTeacher(),
+
+        ///
+        '/list_alert': (context) => ListAlerts(),
         '/add_alert': (context) => AddAlert(),
+
+        ///
+        '/add_mark': (context) => AddMark(),
+        '/add_mark_type': (context) => AddMarkType(),
+
+        ///
+        '/list_payment': (context) => ListPayments(),
         '/add_payment': (context) => AddPayment(),
+
+        ///
+        '/add_homework': (context) => AddHomeWork(),
+        '/list_homework': (context) => ListHomeWorks(),
+
+        ///
+        '/add_programe': (context) => AddPrograme(),
         '/attendance': (context) => Attendance(),
 
-        '/add_subject': (context) => AddSubject(),
         '/home': (context) => Home(),
       },
       home: LogIn(),

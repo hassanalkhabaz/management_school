@@ -5,35 +5,40 @@ import 'package:management_school/ui/widgets/MyDrawer.dart';
 import 'package:management_school/ui/widgets/custom_button.dart';
 import 'package:management_school/ui/widgets/fields.dart';
 
-class AddMark extends StatefulWidget {
+class AddPayment extends StatefulWidget {
   @override
-  _AddMarkState createState() => _AddMarkState();
+  _AddPaymentState createState() => _AddPaymentState();
 }
 
-class _AddMarkState extends State<AddMark> {
+class _AddPaymentState extends State<AddPayment> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Add mark'),
         backgroundColor: Colors.indigo,
+        title: Text('Add Payment'),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios_rounded),
+          onPressed: () => Navigator.of(context).pop(),
+        ),
       ),
-      drawer: MyDrawer(),
       body: SingleChildScrollView(
         child: FormBuilder(
           child: Padding(
             padding: const EdgeInsets.all(20.0),
             child: Column(
               children: [
-                DropDownField(
-                  hint: "Class",
-                  items: ['class1'],
-                  onChange: (val) {},
+                textField(
+                  context,
+                  label: "Paid",
+                  name: "paid",
+                  hint: "add a payment",
+                  onChanged: (str) {},
                 ),
                 SizedBox(height: 20),
                 DropDownField(
-                  hint: "Subject",
-                  items: ['subject'],
+                  hint: "Section",
+                  items: ['section1'],
                   onChange: (val) {},
                 ),
                 SizedBox(height: 20),
@@ -43,21 +48,7 @@ class _AddMarkState extends State<AddMark> {
                   onChange: (val) {},
                 ),
                 SizedBox(height: 20),
-                DropDownField(
-                  hint: "Mark type",
-                  items: ['mark_type'],
-                  onChange: (val) {},
-                ),
-                SizedBox(height: 20),
-                textField(
-                  context,
-                  label: "Mark",
-                  name: "mark",
-                  hint: "student mark",
-                  onChanged: (str) {},
-                ),
-                SizedBox(height: 20),
-                CustomButton(onPressed: () {}, title: 'Add Mark'),
+                CustomButton(onPressed: () {}, title: 'Add Payment'),
               ],
             ),
           ),

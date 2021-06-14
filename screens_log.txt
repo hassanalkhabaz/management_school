@@ -17,6 +17,9 @@ new screens (2500):
     -- sections
         - list sections
         - add section
+    -- alerts
+        - list_alerts
+        - add_
 
 fixed screens (1500):
     - login

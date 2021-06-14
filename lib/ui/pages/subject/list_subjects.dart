@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:management_school/model/activity_model.dart';
+import 'package:management_school/model/subject_model.dart';
 import 'package:management_school/ui/widgets/MyDrawer.dart';
 
-class ListActivity extends StatefulWidget {
+class ListSubjects extends StatefulWidget {
   @override
-  _ListActivityState createState() => _ListActivityState();
+  _ListSubjectsState createState() => _ListSubjectsState();
 }
 
-class _ListActivityState extends State<ListActivity> {
+class _ListSubjectsState extends State<ListSubjects> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('All Activities'),
+          title: Text('All Subjects'),
           backgroundColor: Colors.indigo,
         ),
         floatingActionButton: Column(
@@ -20,7 +20,7 @@ class _ListActivityState extends State<ListActivity> {
           children: [
             IconButton(
               onPressed: () {
-                Navigator.of(context).pushNamed('/activity_to_section');
+                Navigator.of(context).pushNamed('/subject_to_teacher');
               },
               color: Colors.indigo[300],
               icon: Icon(Icons.more_vert_sharp),
@@ -30,7 +30,7 @@ class _ListActivityState extends State<ListActivity> {
             ),
             FloatingActionButton(
               onPressed: () {
-                Navigator.of(context).pushNamed('/add_activity');
+                Navigator.of(context).pushNamed('/add_subject');
               },
               backgroundColor: Colors.indigo,
               child: Icon(Icons.add),
@@ -48,31 +48,21 @@ class _ListActivityState extends State<ListActivity> {
             );
           },
           itemBuilder: (context, index) {
-            return activityTile(fakeData);
+            return subjectTile(fakeData);
           },
         ));
   }
 
-/////
-  var fakeData = ActivityModel(
-      description: "description here",
-      id: 1,
-      endDate: DateTime.now(),
-      startDate: DateTime.now());
+  /////
+  var fakeData = SubjectModel(id: 1, name: "subjest name");
   ////
-  Widget activityTile(ActivityModel activity) {
+  Widget subjectTile(SubjectModel subject) {
     return ListTile(
-      title: Text("Id: ${activity.id}"),
+      title: Text("Id: ${subject.id}"),
       subtitle: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            "Type: ${activity.typeOf}",
-            style: TextStyle(color: Colors.indigo[300]),
-          ),
-          Text("Description: ${activity.description}"),
-          Text("Begin date: ${activity.startDate}"),
-          Text("End date: ${activity.endDate}"),
+          Text("Name: ${subject.name}"),
         ],
       ),
     );

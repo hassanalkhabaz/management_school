@@ -51,7 +51,7 @@ class MyDrawer extends StatelessWidget {
               icon: Icon(Icons.subject),
               title: 'Subjects',
               onTap: () {
-                Navigator.of(context).pushNamed('/add_subject');
+                Navigator.of(context).pushNamed('/list_subject');
               }),
           buildListTile(
               icon: Icon(Icons.check),
@@ -63,7 +63,7 @@ class MyDrawer extends StatelessWidget {
               icon: Icon(Icons.warning_amber_rounded),
               title: 'Alerts',
               onTap: () {
-                Navigator.of(context).pushNamed('/add_alert');
+                Navigator.of(context).pushNamed('/list_alert');
               }),
           buildListTile(
               icon: Icon(Icons.contact_page),
@@ -75,7 +75,7 @@ class MyDrawer extends StatelessWidget {
               icon: Icon(Icons.home_work),
               title: 'HomeWorks',
               onTap: () {
-                Navigator.of(context).pushNamed('/add_homework');
+                Navigator.of(context).pushNamed('/list_homework');
               }),
           buildListTile(
               icon: Icon(Icons.rate_review),
@@ -93,7 +93,7 @@ class MyDrawer extends StatelessWidget {
               icon: Icon(Icons.monetization_on_outlined),
               title: 'Payments',
               onTap: () {
-                Navigator.of(context).pushNamed('/add_payment');
+                Navigator.of(context).pushNamed('/list_payment');
               }),
           Divider(height: 10, thickness: 1.5),
           buildListTile(

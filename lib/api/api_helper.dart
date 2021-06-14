@@ -10,7 +10,7 @@ import 'package:management_school/model/user_model.dart';
 import 'package:management_school/my_cache.dart';
 import 'package:http_parser/http_parser.dart';
 import 'package:management_school/ui/pages/activity/add_activity.dart';
-import 'package:management_school/ui/pages/activity/list_activity.dart';
+import 'package:management_school/ui/pages/activity/list_activities.dart';
 
 class ApiHelper {
   final String _baseUrl = "78.47.183.107:5000";
