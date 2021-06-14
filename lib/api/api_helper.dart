@@ -9,6 +9,7 @@ import 'package:management_school/model/section_model.dart';
 import 'package:management_school/model/user_model.dart';
 import 'package:management_school/my_cache.dart';
 import 'package:http_parser/http_parser.dart';
+import 'package:management_school/ui/pages/activity/add_activity.dart';
 import 'package:management_school/ui/pages/activity/list_activity.dart';
 
 class ApiHelper {
@@ -149,6 +150,22 @@ class ApiHelper {
     return sectionModelFromJson(response.body);
   }
 
+  Future<bool> addActivityToSubject({secId, actId}) async {
+    final url = Uri.http(_baseUrl, '/api/Manager/SaveActivitySection');
+    var accessToken = await MyCache.getString('token');
+
+    print("url: $url");
+    final response = await http.post(url, headers: {
+      'Authorization': 'Bearer $accessToken'
+    }, body: {
+      "sectionId": secId,
+      "actVacId": actId
+    }).timeout(Duration(seconds: _requestTimeout));
+
+    var model = json.decode(response.body);
+    return model['succeeded'];
+  }
+
   //? subject section
 
   Future<bool> createSubject(String name) async {
@@ -168,7 +185,7 @@ class ApiHelper {
   }
 
   //? activity section
-Future<List<ActivityModel>> listActivity() async {
+  Future<List<ActivityModel>> listActivity() async {
     final url = Uri.http(_baseUrl, '/api/School/GetActVac');
     var accessToken = await MyCache.getString('token');
 
@@ -180,7 +197,7 @@ Future<List<ActivityModel>> listActivity() async {
 
     return activityModelFromJson(response.body);
   }
-  
+
   //TODO: Begin Date!!
   Future<bool> createActivity(
       {String description, String typeOf, String endDate}) async {
