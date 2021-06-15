@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:management_school/ui/widgets/DropDownField.dart';
-import 'package:management_school/ui/widgets/MyDrawer.dart';
 import 'package:management_school/ui/widgets/custom_button.dart';
 import 'package:management_school/ui/widgets/fields.dart';
 
@@ -19,8 +18,11 @@ class _UpdateUserState extends State<UpdateUser> {
         appBar: AppBar(
           title: Text('Update User'),
           backgroundColor: Colors.indigo,
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back_ios_rounded),
+            onPressed: () => Navigator.of(context).pop(),
+          ),
         ),
-        drawer: MyDrawer(),
         body: SingleChildScrollView(
           child: FormBuilder(
             child: Padding(

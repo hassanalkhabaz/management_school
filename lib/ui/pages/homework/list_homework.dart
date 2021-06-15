@@ -32,13 +32,17 @@ class _ListHomeWorksState extends State<ListHomeWorks> {
               return homeworkTile(
                   description: 'description',
                   createdOn: "lala",
-                  endDate: "lala");
+                  endDate: "lala",
+                  onTap: () {
+                    Navigator.of(context).pushNamed('/update_homework');
+                  });
             }));
   }
 
   ListTile homeworkTile(
-      {String description, String createdOn, String endDate}) {
+      {String description, String createdOn, String endDate, onTap}) {
     return ListTile(
+      onTap: onTap,
       title: Text(createdOn),
       subtitle: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

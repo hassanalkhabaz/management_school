@@ -74,8 +74,9 @@ class _ListSubjectsState extends State<ListSubjects> {
   }
 
   ////
-  Widget subjectTile(SubjectModel subject) {
+  Widget subjectTile(SubjectModel subject, {onTap}) {
     return ListTile(
+      onTap: onTap,
       title: Text("Id: ${subject.id}"),
       subtitle: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

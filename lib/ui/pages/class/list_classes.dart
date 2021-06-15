@@ -29,12 +29,18 @@ class _ListClassesState extends State<ListClasses> {
               return Divider(height: 1, thickness: 1.5);
             },
             itemBuilder: (context, index) {
-              return classTile(name: 'Class name', totalFees: 'fees');
+              return classTile(
+                  name: 'Class name',
+                  totalFees: 'fees',
+                  onTap: () {
+                    Navigator.of(context).pushNamed('/update_class');
+                  });
             }));
   }
 
-  ListTile classTile({String name, String totalFees}) {
+  ListTile classTile({String name, String totalFees, onTap}) {
     return ListTile(
+      onTap: onTap,
       title: Text(name),
       subtitle: Text(
         totalFees,

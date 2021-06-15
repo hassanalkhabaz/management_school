@@ -56,8 +56,9 @@ class _ListSectionsState extends State<ListSections> {
     );
   }
 
-  ListTile sectionTile({String name}) {
+  ListTile sectionTile({String name, onTap}) {
     return ListTile(
+      onTap: onTap,
       title: Text(name),
       // trailing: Icon(Icons.arrow_forward_ios),
     );

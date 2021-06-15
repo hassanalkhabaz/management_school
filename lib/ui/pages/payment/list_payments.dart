@@ -59,8 +59,10 @@ class _ListPaymentsState extends State<ListPayments> {
     );
   }
 
-  ListTile paymentTile({String paidFees, String unPaidFees, String paidDate}) {
+  ListTile paymentTile(
+      {String paidFees, String unPaidFees, String paidDate, onTap}) {
     return ListTile(
+      onTap: onTap,
       title: Text(paidDate),
       subtitle: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:management_school/api/api_helper.dart';
 import 'package:management_school/model/activity_model.dart';
 import 'package:management_school/ui/widgets/MyDrawer.dart';
+import 'package:management_school/ui/widgets/dialog.dart';
 
 class ListActivities extends StatefulWidget {
   @override
@@ -81,8 +82,10 @@ class _ListActivitiesState extends State<ListActivities> {
       endDate: DateTime.now(),
       startDate: DateTime.now());
   ////
-  Widget activityTile(ActivityModel activity) {
+  Widget activityTile(ActivityModel activity, {onTap, onLongPress}) {
     return ListTile(
+      onTap: onTap,
+      onLongPress: onLongPress,
       title: Text("Id: ${activity.id}"),
       subtitle: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
