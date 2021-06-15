@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:management_school/api/api_helper.dart';
 import 'package:management_school/ui/widgets/DropDownField.dart';
 import 'package:management_school/ui/widgets/custom_button.dart';
 import 'package:management_school/ui/widgets/fields.dart';
@@ -10,6 +11,9 @@ class AddHomeWork extends StatefulWidget {
 }
 
 class _AddHomeWorkState extends State<AddHomeWork> {
+  final _formKey = GlobalKey<FormBuilderState>();
+  bool _isLoading = false;
+  String sectionId, subjectId;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,13 +38,17 @@ class _AddHomeWorkState extends State<AddHomeWork> {
                     hint: "homework submitting date"),
                 SizedBox(height: 20),
                 DropDownField(
-                  onChange: (val) {},
+                  onChange: (val) {
+                    sectionId = val;
+                  },
                   items: ['section1', 'section2'],
                   hint: 'Section',
                 ),
                 SizedBox(height: 20),
                 DropDownField(
-                  onChange: (val) {},
+                  onChange: (val) {
+                    subjectId = val;
+                  },
                   items: ['math', 'arabic'],
                   hint: 'Subject',
                 ),
@@ -54,12 +62,44 @@ class _AddHomeWorkState extends State<AddHomeWork> {
                   onChanged: (str) {},
                 ),
                 SizedBox(height: 20),
-                CustomButton(onPressed: () {}, title: 'Add Homework'),
+                !_isLoading
+                    ? CustomButton(
+                        onPressed: () {
+                          if (_formKey.currentState.saveAndValidate()) {
+                            createHomework(
+                              description:
+                                  _formKey.currentState.fields['description'],
+                              endDate: _formKey
+                                  .currentState.fields['submitting_date'],
+                              sectionId: sectionId,
+                              subjectId: subjectId,
+                            );
+                          }
+                        },
+                        title: 'Add Homework')
+                    : CircularProgressIndicator()
               ],
             ),
           ),
         ),
       ),
     );
+  }
+
+  void createHomework({description, endDate, sectionId, subjectId}) async {
+    _isLoading = true;
+    ApiHelper()
+        .createHomework(
+            description: description,
+            endDate: endDate,
+            sectionId: sectionId,
+            subjectId: subjectId)
+        .then((value) {
+      // if(value){}
+      // created!
+      setState(() {
+        _isLoading = false;
+      });
+    });
   }
 }

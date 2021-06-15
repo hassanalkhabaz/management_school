@@ -3,6 +3,7 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:management_school/ui/widgets/DropDownField.dart';
 import 'package:management_school/ui/widgets/custom_button.dart';
 import 'package:management_school/ui/widgets/fields.dart';
+import 'package:management_school/api/api_helper.dart';
 
 class AddAlert extends StatefulWidget {
   @override
@@ -10,6 +11,9 @@ class AddAlert extends StatefulWidget {
 }
 
 class _AddAlertState extends State<AddAlert> {
+  final _formKey = GlobalKey<FormBuilderState>();
+  bool _isLoading = false;
+  var studentId;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,15 +31,6 @@ class _AddAlertState extends State<AddAlert> {
             padding: const EdgeInsets.all(20.0),
             child: Column(
               children: [
-                textField(
-                  context,
-                  label: "Alert description",
-                  name: "Mark",
-                  hint: "student mark",
-                  isNote: true,
-                  onChanged: (str) {},
-                ),
-                SizedBox(height: 20),
                 DropDownField(
                   hint: "Section",
                   items: ['section1'],
@@ -45,15 +40,50 @@ class _AddAlertState extends State<AddAlert> {
                 DropDownField(
                   hint: "Student",
                   items: ['student'],
-                  onChange: (val) {},
+                  onChange: (val) {
+                    studentId = val;
+                  },
                 ),
                 SizedBox(height: 20),
-                CustomButton(onPressed: () {}, title: 'Add Alert'),
+                textField(
+                  context,
+                  label: "Alert description",
+                  name: "Mark",
+                  hint: "student mark",
+                  isNote: true,
+                  onChanged: (str) {},
+                ),
+                SizedBox(height: 20),
+                !_isLoading
+                    ? CustomButton(
+                        onPressed: () {
+                          if (_formKey.currentState.saveAndValidate()) {
+                            createAlert(
+                              alarmReason: _formKey.currentState.fields['Mark'],
+                              id: studentId,
+                            );
+                          }
+                        },
+                        title: 'Add Alert')
+                    : CircularProgressIndicator()
               ],
             ),
           ),
         ),
       ),
     );
+  }
+
+  void createAlert({id, alarmReason}) async {
+    _isLoading = true;
+    ApiHelper()
+        .createAlarm(studentId: id, alarmReason: alarmReason)
+        .then((value) {
+      // if(value){}
+      // created!
+      setState(() {
+        _isLoading = false;
+      });
+    });
   }
 }

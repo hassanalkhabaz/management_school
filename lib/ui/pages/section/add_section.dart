@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:management_school/api/api_helper.dart';
 import 'package:management_school/ui/widgets/DropDownField.dart';
 import 'package:management_school/ui/widgets/custom_button.dart';
 import 'package:management_school/ui/widgets/fields.dart';
@@ -10,6 +11,9 @@ class AddSection extends StatefulWidget {
 }
 
 class _AddSectionState extends State<AddSection> {
+  final _formKey = GlobalKey<FormBuilderState>();
+  bool _isLoading = false;
+  String classId;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,17 +40,40 @@ class _AddSectionState extends State<AddSection> {
                 ),
                 SizedBox(height: 20),
                 DropDownField(
-                  onChange: (val) {},
+                  onChange: (val) {
+                    classId = val;
+                  },
                   items: ['c1', 'c2'],
                   hint: 'Class',
                 ),
                 SizedBox(height: 20),
-                CustomButton(onPressed: () {}, title: 'Add Section'),
+                !_isLoading
+                    ? CustomButton(
+                        onPressed: () {
+                          if (_formKey.currentState.saveAndValidate()) {
+                            createSection(
+                              name:
+                                  _formKey.currentState.fields['section_name'],
+                              classId: classId,
+                            );
+                          }
+                        },
+                        title: 'Add Section')
+                    : CircularProgressIndicator()
               ],
             ),
           ),
         ),
       ),
     );
+  }
+
+  void createSection({name, classId}) {
+    _isLoading = true;
+    ApiHelper().createSection(name, classId).then((value) {
+      setState(() {
+        _isLoading = false;
+      });
+    });
   }
 }

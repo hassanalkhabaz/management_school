@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:management_school/api/api_helper.dart';
 import 'package:management_school/ui/widgets/DropDownField.dart';
 import 'package:management_school/ui/widgets/MyDrawer.dart';
 import 'package:management_school/ui/widgets/custom_button.dart';
@@ -11,6 +12,10 @@ class AddMark extends StatefulWidget {
 }
 
 class _AddMarkState extends State<AddMark> {
+  final _formKey = GlobalKey<FormBuilderState>();
+  bool _isLoading = false;
+  String userId, subId;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,12 +74,41 @@ class _AddMarkState extends State<AddMark> {
                   onChanged: (str) {},
                 ),
                 SizedBox(height: 20),
-                CustomButton(onPressed: () {}, title: 'Add Mark'),
+                !_isLoading
+                    ? CustomButton(
+                        onPressed: () {
+                          if (_formKey.currentState.saveAndValidate()) {
+                            createMark(
+                              degree: _formKey.currentState.fields['mark'],
+                              markTypeId:
+                                  _formKey.currentState.fields['mark_type'],
+                              userId: userId,
+                              subId: subId,
+                            );
+                          }
+                        },
+                        title: 'Add Mark')
+                    : CircularProgressIndicator()
               ],
             ),
           ),
         ),
       ),
     );
+  }
+
+  void createMark({degree, markTypeId, subId, userId}) {
+    _isLoading = true;
+    ApiHelper()
+        .createMark(
+            degree: degree,
+            markTypeId: markTypeId,
+            subId: subId,
+            userId: userId)
+        .then((value) {
+      setState(() {
+        _isLoading = false;
+      });
+    });
   }
 }

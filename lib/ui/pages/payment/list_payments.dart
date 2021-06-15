@@ -44,9 +44,13 @@ class _ListPaymentsState extends State<ListPayments> {
                     },
                     itemBuilder: (context, index) {
                       return paymentTile(
-                          paidFees: paymentsData[index].paidFees.toString(),
-                          unPaidFees: paymentsData[index].unPaidFees.toString(),
-                          paidDate: paymentsData[index].paidDate.toString());
+                        paidFees: paymentsData[index].paidFees.toString(),
+                        unPaidFees: paymentsData[index].unPaidFees.toString(),
+                        paidDate: paymentsData[index].paidDate.toString(),
+                        onTap: () {
+                          Navigator.of(context).pushNamed('/update_payment');
+                        },
+                      );
                     },
                   ),
                 )

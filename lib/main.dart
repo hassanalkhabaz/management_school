@@ -13,7 +13,7 @@ import 'package:management_school/ui/pages/payment/add_payment.dart';
 import 'package:management_school/ui/pages/alert/list_alerts.dart';
 import 'package:management_school/ui/pages/attendance.dart';
 import 'package:management_school/ui/pages/class/add_class.dart';
-import 'package:management_school/ui/pages/homework/add_homeword.dart';
+import 'package:management_school/ui/pages/homework/add_homework.dart';
 import 'package:management_school/ui/pages/mark/add_mark.dart';
 import 'package:management_school/ui/pages/add_programe.dart';
 import 'package:management_school/ui/pages/class/list_classes.dart';

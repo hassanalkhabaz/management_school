@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:management_school/api/api_helper.dart';
 import 'package:management_school/ui/widgets/custom_button.dart';
 import 'package:management_school/ui/widgets/fields.dart';
 
@@ -9,6 +10,8 @@ class AddClass extends StatefulWidget {
 }
 
 class _AddClassState extends State<AddClass> {
+  final _formKey = GlobalKey<FormBuilderState>();
+  bool _isLoading = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,12 +45,32 @@ class _AddClassState extends State<AddClass> {
                   onChanged: (str) {},
                 ),
                 SizedBox(height: 20),
-                CustomButton(onPressed: () {}, title: 'Add Class'),
+                !_isLoading
+                    ? CustomButton(
+                        onPressed: () {
+                          if (_formKey.currentState.saveAndValidate()) {
+                            createClass(
+                              name: _formKey.currentState.fields['class_name'],
+                              fees: _formKey.currentState.fields['total_fees'],
+                            );
+                          }
+                        },
+                        title: 'Add Class')
+                    : CircularProgressIndicator()
               ],
             ),
           ),
         ),
       ),
     );
+  }
+
+  void createClass({name, fees}) {
+    _isLoading = true;
+    ApiHelper().createClass(name: name, fees: fees).then((value) {
+      setState(() {
+        _isLoading = false;
+      });
+    });
   }
 }

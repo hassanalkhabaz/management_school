@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:management_school/api/api_helper.dart';
 import 'package:management_school/ui/widgets/MyDrawer.dart';
 import 'package:management_school/ui/widgets/custom_button.dart';
 import 'package:management_school/ui/widgets/fields.dart';
@@ -11,6 +12,7 @@ class AddActivity extends StatefulWidget {
 
 class _AddActivityState extends State<AddActivity> {
   final _formKey = GlobalKey<FormBuilderState>();
+  bool _isLoading = false;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +34,7 @@ class _AddActivityState extends State<AddActivity> {
               children: [
                 datePicker(
                     label: "Begin date",
-                    name: "Begin_date",
+                    name: "begin_date",
                     onChanged: (str) {},
                     hint: "Activity Begin date"),
                 SizedBox(height: 20),
@@ -59,14 +61,38 @@ class _AddActivityState extends State<AddActivity> {
                   onChanged: (str) {},
                 ),
                 SizedBox(height: 20),
-                CustomButton(onPressed: () {
-                  if(_formKey.){}
-                }, title: 'Add Activity'),
+                !_isLoading
+                    ? CustomButton(
+                        onPressed: () {
+                          if (_formKey.currentState.saveAndValidate()) {
+                            createActivity(
+                              description:
+                                  _formKey.currentState.fields['description'],
+                              typeOf:
+                                  _formKey.currentState.fields['activity_type'],
+                              endDate: _formKey.currentState.fields['end_date'],
+                            );
+                          }
+                        },
+                        title: 'Add Activity')
+                    : CircularProgressIndicator()
               ],
             ),
           ),
         ),
       ),
     );
+  }
+
+  void createActivity({description, typeOf, endDate}) {
+    _isLoading = true;
+    ApiHelper()
+        .createActivity(
+            description: description, typeOf: typeOf, endDate: endDate)
+        .then((value) {
+      setState(() {
+        _isLoading = false;
+      });
+    });
   }
 }

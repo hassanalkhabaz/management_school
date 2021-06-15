@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:management_school/api/api_helper.dart';
 import 'package:management_school/ui/widgets/custom_button.dart';
 import 'package:management_school/ui/widgets/fields.dart';
 
@@ -9,6 +10,9 @@ class AddSubject extends StatefulWidget {
 }
 
 class _AddSubjectState extends State<AddSubject> {
+  final _formKey = GlobalKey<FormBuilderState>();
+  bool _isLoading = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,12 +38,31 @@ class _AddSubjectState extends State<AddSubject> {
                   onChanged: (str) {},
                 ),
                 SizedBox(height: 20),
-                CustomButton(onPressed: () {}, title: 'Add Subject'),
+                !_isLoading
+                    ? CustomButton(
+                        onPressed: () {
+                          if (_formKey.currentState.saveAndValidate()) {
+                            createSubject(
+                                name: _formKey
+                                    .currentState.fields['subject_name']);
+                          }
+                        },
+                        title: 'Add Subject')
+                    : CircularProgressIndicator()
               ],
             ),
           ),
         ),
       ),
     );
+  }
+
+  void createSubject({name}) {
+    _isLoading = true;
+    ApiHelper().createSubject(name).then((value) {
+      setState(() {
+        _isLoading = false;
+      });
+    });
   }
 }

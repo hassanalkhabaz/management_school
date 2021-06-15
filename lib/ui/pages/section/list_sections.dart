@@ -43,7 +43,11 @@ class _ListSectionsState extends State<ListSections> {
                       return Divider(height: 1, thickness: 1.5);
                     },
                     itemBuilder: (context, index) {
-                      return sectionTile(name: sectionsData[index].name);
+                      return sectionTile(
+                          name: sectionsData[index].name,
+                          onTap: () {
+                            Navigator.of(context).pushNamed('/update_section');
+                          });
                     },
                   ),
                 )

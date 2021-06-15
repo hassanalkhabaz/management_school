@@ -43,8 +43,9 @@ class _ListAlertsState extends State<ListAlerts> {
                       return Divider(height: 1, thickness: 1.5);
                     },
                     itemBuilder: (context, index) {
-                      return alertTile(
-                          alertData[index]);
+                      return alertTile(alertData[index], onTap: () {
+                        Navigator.of(context).pushNamed('/update_alert');
+                      });
                     },
                   ),
                 )
@@ -57,8 +58,9 @@ class _ListAlertsState extends State<ListAlerts> {
     );
   }
 
-  ListTile alertTile(AlarmModel alert) {
+  ListTile alertTile(AlarmModel alert, {onTap}) {
     return ListTile(
+      onTap: onTap,
       title: Text(alert.date.toString()),
       subtitle: Text(
         "Reason: ${alert.alarmReason}",

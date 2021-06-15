@@ -96,7 +96,7 @@ class ApiHelper {
 
   //? class section
 
-  Future<bool> createClass({String name, double fees}) async {
+  Future<bool> createClass({String name, String fees}) async {
     final url = Uri.http(_baseUrl, '/api/Manager/SaveClass');
     var accessToken = await MyCache.getString('token');
 

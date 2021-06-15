@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:management_school/api/api_helper.dart';
 import 'package:management_school/ui/widgets/DropDownField.dart';
 import 'package:management_school/ui/widgets/MyDrawer.dart';
 import 'package:image_picker/image_picker.dart';
@@ -14,8 +15,11 @@ class AddPrograme extends StatefulWidget {
 }
 
 class _AddProgrameState extends State<AddPrograme> {
+  final _formKey = GlobalKey<FormBuilderState>();
   File _image;
+  bool _isLoading = false;
   final picker = ImagePicker();
+  String secId;
 
   @override
   Widget build(BuildContext context) {
@@ -81,12 +85,27 @@ class _AddProgrameState extends State<AddPrograme> {
                 ),
                 SizedBox(height: 20),
                 DropDownField(
-                  onChange: (val) {},
+                  onChange: (val) {
+                    secId = val;
+                  },
                   items: ['s1', 's2'],
                   hint: 'Section',
                 ),
                 SizedBox(height: 20),
-                CustomButton(onPressed: () {}, title: 'Add Programe'),
+                !_isLoading
+                    ? CustomButton(
+                        onPressed: () {
+                          if (_formKey.currentState.saveAndValidate()) {
+                            createPrograme(
+                              name:
+                                  _formKey.currentState.fields['programe_name'],
+                              image: _image,
+                              secId: secId,
+                            );
+                          }
+                        },
+                        title: 'Add Programe')
+                    : CircularProgressIndicator()
               ],
             ),
           ),
@@ -104,6 +123,17 @@ class _AddProgrameState extends State<AddPrograme> {
       } else {
         print('No image selected.');
       }
+    });
+  }
+
+  void createPrograme({name, image, secId}) {
+    _isLoading = true;
+    ApiHelper()
+        .createProgramme(name: name, image: image, secId: secId)
+        .then((value) {
+      setState(() {
+        _isLoading = false;
+      });
     });
   }
 }

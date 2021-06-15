@@ -61,7 +61,12 @@ class _ListSubjectsState extends State<ListSubjects> {
                     );
                   },
                   itemBuilder: (context, index) {
-                    return subjectTile(subjectsData[index]);
+                    return subjectTile(
+                      subjectsData[index],
+                      onTap: () {
+                        Navigator.of(context).pushNamed('/update_subject');
+                      },
+                    );
                   },
                 ))
               : Center(

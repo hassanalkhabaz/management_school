@@ -62,7 +62,15 @@ class _ListActivitiesState extends State<ListActivities> {
                       );
                     },
                     itemBuilder: (context, index) {
-                      return activityTile(activityData[index]);
+                      return activityTile(
+                        activityData[index],
+                        onTap: () {
+                          Navigator.of(context).pushNamed('/update_activity');
+                        },
+                        onLongPress: () async {
+                          await dialog(context, onPressed: () {});
+                        },
+                      );
                     },
                   ),
                 )
