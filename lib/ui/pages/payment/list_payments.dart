@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:management_school/api/api_helper.dart';
+import 'package:management_school/model/payment_model.dart';
 import 'package:management_school/ui/widgets/MyDrawer.dart';
 
 class ListPayments extends StatefulWidget {
@@ -7,6 +9,15 @@ class ListPayments extends StatefulWidget {
 }
 
 class _ListPaymentsState extends State<ListPayments> {
+  List<PaymentModel> paymentsData;
+  bool _isLoading = true;
+
+  @override
+  void initState() {
+    super.initState();
+    fetchPaymentsData();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,17 +33,29 @@ class _ListPaymentsState extends State<ListPayments> {
         child: Icon(Icons.add),
       ),
       drawer: MyDrawer(),
-      body: ListView.separated(
-        padding: EdgeInsets.all(10),
-        itemCount: 3,
-        separatorBuilder: (context, i) {
-          return Divider(height: 20, thickness: 1.5);
-        },
-        itemBuilder: (context, index) {
-          return paymentTile(
-              paidFees: '200000', unPaidFees: '30000', paidDate: '12-06-2021');
-        },
-      ),
+      body: !_isLoading
+          ? paymentsData != null
+              ? Container(
+                  child: ListView.separated(
+                    padding: EdgeInsets.all(10),
+                    itemCount: 3,
+                    separatorBuilder: (context, i) {
+                      return Divider(height: 20, thickness: 1.5);
+                    },
+                    itemBuilder: (context, index) {
+                      return paymentTile(
+                          paidFees: paymentsData[index].paidFees.toString(),
+                          unPaidFees: paymentsData[index].unPaidFees.toString(),
+                          paidDate: paymentsData[index].paidDate.toString());
+                    },
+                  ),
+                )
+              : Center(
+                  child: Text('No Payments Found'),
+                )
+          : Center(
+              child: CircularProgressIndicator(),
+            ),
     );
   }
 
@@ -55,5 +78,13 @@ class _ListPaymentsState extends State<ListPayments> {
       ),
       // trailing: Icon(Icons.arrow_forward_ios),
     );
+  }
+
+  Future<void> fetchPaymentsData() async {
+    final data = await ApiHelper().listPayment();
+    setState(() {
+      paymentsData = data;
+      _isLoading = false;
+    });
   }
 }

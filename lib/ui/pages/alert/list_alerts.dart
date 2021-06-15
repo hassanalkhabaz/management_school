@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:management_school/api/api_helper.dart';
+import 'package:management_school/model/alarm_model.dart';
 import 'package:management_school/ui/widgets/MyDrawer.dart';
 
 class ListAlerts extends StatefulWidget {
@@ -7,6 +9,15 @@ class ListAlerts extends StatefulWidget {
 }
 
 class _ListAlertsState extends State<ListAlerts> {
+  List<AlarmModel> alertData;
+  bool _isLoading = true;
+
+  @override
+  void initState() {
+    super.initState();
+    fetchAlertsData();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,27 +33,47 @@ class _ListAlertsState extends State<ListAlerts> {
         child: Icon(Icons.add),
       ),
       drawer: MyDrawer(),
-      body: ListView.separated(
-        padding: EdgeInsets.all(10),
-        itemCount: 3,
-        separatorBuilder: (context, i) {
-          return Divider(height: 1, thickness: 1.5);
-        },
-        itemBuilder: (context, index) {
-          return alertTile(alertReason: 'reason', date: '12-06-2021');
-        },
-      ),
+      body: !_isLoading
+          ? alertData != null
+              ? Container(
+                  child: ListView.separated(
+                    padding: EdgeInsets.all(10),
+                    itemCount: 3,
+                    separatorBuilder: (context, i) {
+                      return Divider(height: 1, thickness: 1.5);
+                    },
+                    itemBuilder: (context, index) {
+                      return alertTile(
+                          alertData[index]);
+                    },
+                  ),
+                )
+              : Center(
+                  child: Text('No Alerts Found'),
+                )
+          : Center(
+              child: CircularProgressIndicator(),
+            ),
     );
   }
 
-  ListTile alertTile({String alertReason, String date}) {
+  ListTile alertTile(AlarmModel alert) {
     return ListTile(
-      title: Text(date),
+      title: Text(alert.date.toString()),
       subtitle: Text(
-        "Reason: $alertReason",
+        "Reason: ${alert.alarmReason}",
         style: TextStyle(color: Colors.indigo[300]),
       ),
       // trailing: Icon(Icons.arrow_forward_ios),
     );
+  }
+
+  // Secreen Logic
+  void fetchAlertsData() async {
+    final data = await ApiHelper().listAlarms();
+    setState(() {
+      alertData = data;
+      _isLoading = false;
+    });
   }
 }

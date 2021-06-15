@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:management_school/api/api_helper.dart';
+import 'package:management_school/model/user_model.dart';
 import 'package:management_school/ui/widgets/MyDrawer.dart';
 
 class ListUsers extends StatefulWidget {
@@ -8,33 +10,52 @@ class ListUsers extends StatefulWidget {
 }
 
 class _ListUsersState extends State<ListUsers> {
+  List<UserModel> usersData;
+  bool _isLoading = true;
+
+  @override
+  void initState() {
+    super.initState();
+    fetchUSersData();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text('All Users'),
-          backgroundColor: Colors.indigo,
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            Navigator.of(context).pushNamed('/add_user');
-          },
-          backgroundColor: Colors.indigo,
-          child: Icon(Icons.add),
-        ),
-        drawer: MyDrawer(),
-        body: ListView.separated(
-            padding: EdgeInsets.all(10),
-            itemCount: 3,
-            separatorBuilder: (context, i) {
-              return Divider(
-                height: 1,
-                thickness: 1.5,
-              );
-            },
-            itemBuilder: (context, index) {
-              return userTile(name: 'User name', type: 'Type');
-            }));
+      appBar: AppBar(
+        title: Text('All Users'),
+        backgroundColor: Colors.indigo,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context).pushNamed('/add_user');
+        },
+        backgroundColor: Colors.indigo,
+        child: Icon(Icons.add),
+      ),
+      drawer: MyDrawer(),
+      body: !_isLoading
+          ? usersData != null
+              ? Container(
+                  child: ListView.separated(
+                      padding: EdgeInsets.all(10),
+                      itemCount: usersData.length,
+                      separatorBuilder: (context, i) {
+                        return Divider(
+                          height: 1,
+                          thickness: 1.5,
+                        );
+                      },
+                      itemBuilder: (context, index) {
+                        return userTile(name:usersData[index].userName, type: usersData[index].type);
+                      }))
+              : Center(
+                  child: Text('No Alerts Found'),
+                )
+          : Center(
+              child: CircularProgressIndicator(),
+            ),
+    );
   }
 
   ListTile userTile({String name, String type, id, Function onTap}) {
@@ -50,5 +71,14 @@ class _ListUsersState extends State<ListUsers> {
             .pushNamed("/user_settings", arguments: {'name': name, 'id': id});
       },
     );
+  }
+
+  // Secreen Logic
+  void fetchUSersData() async {
+    final data = await ApiHelper().listUsers();
+    setState(() {
+      usersData = data;
+      _isLoading = false;
+    });
   }
 }

@@ -10,6 +10,8 @@ class AddActivity extends StatefulWidget {
 }
 
 class _AddActivityState extends State<AddActivity> {
+  final _formKey = GlobalKey<FormBuilderState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,13 +19,13 @@ class _AddActivityState extends State<AddActivity> {
         title: Text('Add activity'),
         backgroundColor: Colors.indigo,
         leading: IconButton(
-            icon: Icon(Icons.arrow_back_ios_rounded),
-            onPressed: () => Navigator.of(context).pop(),
-          ),
+          icon: Icon(Icons.arrow_back_ios_rounded),
+          onPressed: () => Navigator.of(context).pop(),
+        ),
       ),
-      
       body: SingleChildScrollView(
         child: FormBuilder(
+          key: _formKey,
           child: Padding(
             padding: const EdgeInsets.all(20.0),
             child: Column(
@@ -57,7 +59,9 @@ class _AddActivityState extends State<AddActivity> {
                   onChanged: (str) {},
                 ),
                 SizedBox(height: 20),
-                CustomButton(onPressed: () {}, title: 'Add Activity'),
+                CustomButton(onPressed: () {
+                  if(_formKey.){}
+                }, title: 'Add Activity'),
               ],
             ),
           ),

@@ -17,6 +17,7 @@ new screens (2500):
         - add homework
     -- mark
         - add mark
+        - update mark
         - add mark type
     -- payment
         - list payments
@@ -26,7 +27,6 @@ new screens (2500):
         - add section
     -- subject
         - list subject
-        - add subject
         - add subject to teacher
     -- users 
         - list users
@@ -37,4 +37,12 @@ new screens (2500):
     - home 
 fixed screens (1500):
     - login
+        - update subject
+        - update section
+        - update payment
+        - update homework
+        - update classes
+        - update alerts
+        - update activity
     - forget password
+68

@@ -2,15 +2,21 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 import 'package:management_school/model/activity_model.dart';
+import 'package:management_school/model/alarm_model.dart';
 import 'package:management_school/model/class_model.dart';
 import 'package:management_school/model/dropdown_response.dart';
+import 'package:management_school/model/homework_model.dart';
 import 'package:management_school/model/login_model.dart';
+import 'package:management_school/model/payment_model.dart';
 import 'package:management_school/model/section_model.dart';
+import 'package:management_school/model/subject_model.dart';
 import 'package:management_school/model/user_model.dart';
 import 'package:management_school/my_cache.dart';
 import 'package:http_parser/http_parser.dart';
 import 'package:management_school/ui/pages/activity/add_activity.dart';
 import 'package:management_school/ui/pages/activity/list_activities.dart';
+import 'package:management_school/ui/pages/homework/list_homework.dart';
+import 'package:management_school/ui/pages/subject/list_subjects.dart';
 
 class ApiHelper {
   final String _baseUrl = "78.47.183.107:5000";
@@ -184,6 +190,19 @@ class ApiHelper {
     return model['succeeded'];
   }
 
+  Future<List<SubjectModel>> listSubjects() async {
+    final url = Uri.http(_baseUrl, '/api/Manager/GetSub');
+    var accessToken = await MyCache.getString('token');
+
+    print("url: $url");
+    final response = await http.get(
+      url,
+      headers: {'Authorization': 'Bearer $accessToken'},
+    ).timeout(Duration(seconds: _requestTimeout));
+
+    return subjectModelFromJson(response.body);
+  }
+
   //? activity section
   Future<List<ActivityModel>> listActivity() async {
     final url = Uri.http(_baseUrl, '/api/School/GetActVac');
@@ -240,6 +259,19 @@ class ApiHelper {
     return model['succeeded'];
   }
 
+  Future<List<AlarmModel>> listAlarms() async {
+    final url = Uri.http(_baseUrl, '/api/Teacher/GetAlarm');
+    var accessToken = await MyCache.getString('token');
+
+    print("url: $url");
+    final response = await http.get(
+      url,
+      headers: {'Authorization': 'Bearer $accessToken'},
+    ).timeout(Duration(seconds: _requestTimeout));
+
+    return alarmModelFromJson(response.body);
+  }
+
 //? homeworks
   Future<bool> createHomework({
     description,
@@ -266,6 +298,19 @@ class ApiHelper {
     return model['succeeded'];
   }
 
+  Future<List<HomeworkModel>> listHomeWorks() async {
+    final url = Uri.http(_baseUrl, '/api/Teacher/GetHW');
+    var accessToken = await MyCache.getString('token');
+
+    print("url: $url");
+    final response = await http.get(
+      url,
+      headers: {'Authorization': 'Bearer $accessToken'},
+    ).timeout(Duration(seconds: _requestTimeout));
+
+    return homeworkModelFromJson(response.body);
+  }
+
   //? marks
 
   Future<bool> createMark({degree, userId, subId, markTypeId}) async {
@@ -288,6 +333,18 @@ class ApiHelper {
     return model['succeeded'];
   }
 
+  Future<List<ActivityModel>> listMarks() async {
+    final url = Uri.http(_baseUrl, '/api/Teacher/GetMark');
+    var accessToken = await MyCache.getString('token');
+
+    print("url: $url");
+    final response = await http.get(
+      url,
+      headers: {'Authorization': 'Bearer $accessToken'},
+    ).timeout(Duration(seconds: _requestTimeout));
+
+    return activityModelFromJson(response.body);
+  }
   //? payment section
 
   Future<bool> createPayment({paidFees, userId}) async {
@@ -305,6 +362,18 @@ class ApiHelper {
     return model['succeeded'];
   }
 
+  Future<List<PaymentModel>> listPayment() async {
+    final url = Uri.http(_baseUrl, '/api/School/GetActVac');
+    var accessToken = await MyCache.getString('token');
+
+    print("url: $url");
+    final response = await http.get(
+      url,
+      headers: {'Authorization': 'Bearer $accessToken'},
+    ).timeout(Duration(seconds: _requestTimeout));
+
+    return paymentModelFromJson(response.body);
+  }
   //? attendance section
 
   Future<bool> createAttendance({studentId, isPresense}) async {
