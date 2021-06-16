@@ -54,7 +54,7 @@ class _ListActivitiesState extends State<ListActivities> {
               ? Container(
                   child: ListView.separated(
                     padding: EdgeInsets.all(10),
-                    itemCount: 3,
+                    itemCount: activityData.length,
                     separatorBuilder: (context, i) {
                       return Divider(
                         height: 10,

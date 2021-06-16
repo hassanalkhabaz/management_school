@@ -38,7 +38,7 @@ class _ListPaymentsState extends State<ListPayments> {
               ? Container(
                   child: ListView.separated(
                     padding: EdgeInsets.all(10),
-                    itemCount: 3,
+                    itemCount: paymentsData.length ,
                     separatorBuilder: (context, i) {
                       return Divider(height: 20, thickness: 1.5);
                     },

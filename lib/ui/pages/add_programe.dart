@@ -77,7 +77,6 @@ class _AddProgrameState extends State<AddPrograme> {
                 SizedBox(height: 20),
                 textField(
                   context,
-                  isNote: true,
                   label: "Programe name",
                   name: "programe_name",
                   hint: "add programe name",

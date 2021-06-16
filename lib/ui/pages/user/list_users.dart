@@ -50,7 +50,7 @@ class _ListUsersState extends State<ListUsers> {
                         return userTile(name:usersData[index].userName, type: usersData[index].type);
                       }))
               : Center(
-                  child: Text('No Alerts Found'),
+                  child: Text('No Users Found'),
                 )
           : Center(
               child: CircularProgressIndicator(),

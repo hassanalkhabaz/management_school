@@ -11,10 +11,7 @@ class MyDrawer extends StatelessWidget {
           UserAccountsDrawerHeader(
             accountName: Text('hassan'),
             accountEmail: (Text('hassan@gmail.com ')),
-            currentAccountPicture: (CircleAvatar(
-              backgroundColor: Colors.cyan,
-              child: Icon(Icons.person),
-            )),
+            
             decoration: BoxDecoration(
               color: Colors.cyan[400],
             ),
@@ -100,7 +97,7 @@ class MyDrawer extends StatelessWidget {
               icon: Icon(Icons.power_settings_new),
               title: 'Logout',
               onTap: () {
-                Navigator.of(context).pushNamed('/add_programe');
+                Navigator.of(context).pushNamed('/login');
               }),
         ],
       ),

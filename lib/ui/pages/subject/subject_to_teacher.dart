@@ -27,13 +27,13 @@ class _SubjectToTeacherState extends State<SubjectToTeacher> {
             child: Column(
               children: [
                 DropDownField(
-                  hint: 'subject Id',
+                  hint: 'subject Name',
                   onChange: (val) {},
                   items: ['1', '2', '3'],
                 ),
                 SizedBox(height: 20),
                 DropDownField(
-                  hint: 'teacher Id',
+                  hint: 'teacher Name',
                   onChange: (val) {},
                   items: ['1', '2', '3'],
                 ),

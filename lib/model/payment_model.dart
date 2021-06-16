@@ -19,14 +19,14 @@ class PaymentModel {
   String userName;
   int paidFees;
   int unPaidFees;
-  DateTime paidDate;
+  var paidDate;
 
   factory PaymentModel.fromJson(Map<String, dynamic> json) => PaymentModel(
         userId: json["userId"],
         userName: json["userName"],
         paidFees: json["paidFees"],
         unPaidFees: json["unPaidFees"],
-        paidDate: DateTime.parse(json["paidDate"]),
+        paidDate:json["paidDate"]!=null? DateTime.parse(json["paidDate"]):"no info",
       );
 
   Map<String, dynamic> toJson() => {

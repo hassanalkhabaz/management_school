@@ -95,17 +95,7 @@ class LogIn extends StatelessWidget {
         SizedBox(
           height: verticalSpacing * .5,
         ),
-        TextButton(
-          onPressed: () {},
-          style: TextButton.styleFrom(
-            padding: EdgeInsets.symmetric(
-                vertical: verticalSpacing * .5), // to make an equal spacing
-          ),
-          child: Text(
-            'forget password ?',
-            style: TextStyle(color: Colors.grey),
-          ),
-        ),
+       
         SizedBox(
           height: verticalSpacing * .5,
         ),

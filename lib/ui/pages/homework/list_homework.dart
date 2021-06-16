@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:management_school/api/api_helper.dart';
+import 'package:management_school/model/homework_model.dart';
 import 'package:management_school/ui/widgets/MyDrawer.dart';
 
 class ListHomeWorks extends StatefulWidget {
@@ -7,6 +9,14 @@ class ListHomeWorks extends StatefulWidget {
 }
 
 class _ListHomeWorksState extends State<ListHomeWorks> {
+    List<HomeworkModel> homeworkData;
+  bool _isLoading = true;
+
+  @override
+  void initState() {
+    super.initState();
+    fetchHomeworksData();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,21 +32,30 @@ class _ListHomeWorksState extends State<ListHomeWorks> {
           child: Icon(Icons.add),
         ),
         drawer: MyDrawer(),
-        body: ListView.separated(
+        body: !_isLoading
+          ? homeworkData != null
+              ? Container(
+                  child:ListView.separated(
             padding: EdgeInsets.all(10),
-            itemCount: 3,
+            itemCount: homeworkData.length,
             separatorBuilder: (context, i) {
               return Divider(height: 20, thickness: 1.5);
             },
             itemBuilder: (context, index) {
               return homeworkTile(
-                  description: 'description',
-                  createdOn: "lala",
-                  endDate: "lala",
+                  description: homeworkData[index].description,
+                  createdOn: homeworkData[index].createdOn.toString(),
+                  endDate: homeworkData[index].endDate.toString(),
                   onTap: () {
                     Navigator.of(context).pushNamed('/update_homework');
                   });
-            }));
+            }))
+              : Center(
+                  child: Text('No Homeworks Found'),
+                )
+          : Center(
+              child: CircularProgressIndicator(),
+            ),);
   }
 
   ListTile homeworkTile(
@@ -61,5 +80,13 @@ class _ListHomeWorksState extends State<ListHomeWorks> {
       ),
       // trailing: Icon(Icons.arrow_forward_ios),
     );
+  }
+
+  void fetchHomeworksData() async {
+    final data = await ApiHelper().listHomeWorks();
+    setState(() {
+      homeworkData = data;
+      _isLoading = false;
+    });
   }
 }

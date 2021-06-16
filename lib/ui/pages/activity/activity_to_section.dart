@@ -27,13 +27,13 @@ class _ActivityToSectionState extends State<ActivityToSection> {
             child: Column(
               children: [
                 DropDownField(
-                  hint: 'Activity Id',
+                  hint: 'Activity Name',
                   onChange: (val) {},
                   items: ['1', '2', '3'],
                 ),
                 SizedBox(height: 20),
                 DropDownField(
-                  hint: 'Section Id',
+                  hint: 'Section Name',
                   onChange: (val) {},
                   items: ['1', '2', '3'],
                 ),

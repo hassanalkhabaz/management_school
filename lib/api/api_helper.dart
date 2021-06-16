@@ -61,7 +61,8 @@ class ApiHelper {
       url,
       headers: {'Authorization': 'Bearer $accessToken'},
     ).timeout(Duration(seconds: _requestTimeout));
-    var model = userModelFromJson(response.body);
+    var model;
+    if (response.body != "") model = userModelFromJson(response.body);
     return model;
   }
 
@@ -123,7 +124,9 @@ class ApiHelper {
       headers: {'Authorization': 'Bearer $accessToken'},
     ).timeout(Duration(seconds: _requestTimeout));
 
-    return classModelFromJson(response.body);
+    var model;
+    if (response.body != "") model = classModelFromJson(response.body);
+    return model;
   }
 
   //? 'section' section
@@ -153,7 +156,10 @@ class ApiHelper {
       headers: {'Authorization': 'Bearer $accessToken'},
     ).timeout(Duration(seconds: _requestTimeout));
 
-    return sectionModelFromJson(response.body);
+    var model;
+    if (response.body != "") 
+    model = sectionModelFromJson(response.body);
+    return model;
   }
 
   Future<bool> addActivityToSubject({secId, actId}) async {
@@ -200,7 +206,10 @@ class ApiHelper {
       headers: {'Authorization': 'Bearer $accessToken'},
     ).timeout(Duration(seconds: _requestTimeout));
 
-    return subjectModelFromJson(response.body);
+      var model;
+    if(response.body != "")
+     model =subjectModelFromJson(response.body);
+    return model;
   }
 
   //? activity section
@@ -269,7 +278,10 @@ class ApiHelper {
       headers: {'Authorization': 'Bearer $accessToken'},
     ).timeout(Duration(seconds: _requestTimeout));
 
-    return alarmModelFromJson(response.body);
+      var model;
+    if(response.body != "")
+     model =alarmModelFromJson(response.body);
+    return model;
   }
 
 //? homeworks
@@ -308,7 +320,10 @@ class ApiHelper {
       headers: {'Authorization': 'Bearer $accessToken'},
     ).timeout(Duration(seconds: _requestTimeout));
 
-    return homeworkModelFromJson(response.body);
+     var model;
+    if(response.body != "")
+     model =homeworkModelFromJson(response.body);
+    return model; 
   }
 
   //? marks
