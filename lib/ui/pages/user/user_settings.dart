@@ -15,7 +15,7 @@ class _UserSettingsState extends State<UserSettings> {
     return Scaffold(
         appBar: AppBar(
           title: Text('User settings'),
-          backgroundColor: Colors.indigo,
+          backgroundColor: Colors.cyan,
           leading: IconButton(
             icon: Icon(Icons.arrow_back_ios_rounded),
             onPressed: () => Navigator.of(context).pop(),
@@ -40,7 +40,7 @@ class _UserSettingsState extends State<UserSettings> {
                       Divider(
                         thickness: 1.5,
                         height: 25,
-                        color: Colors.indigo,
+                        color: Colors.cyan,
                       ),
                       SizedBox(
                         height: 10,

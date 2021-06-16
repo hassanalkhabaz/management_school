@@ -21,7 +21,7 @@ class _AddMarkState extends State<AddMark> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Add mark'),
-        backgroundColor: Colors.indigo,
+        backgroundColor: Colors.cyan,
       ),
       drawer: MyDrawer(),
       body: SingleChildScrollView(
@@ -61,7 +61,7 @@ class _AddMarkState extends State<AddMark> {
                     },
                     child: Text("add new type",
                         style: TextStyle(
-                            color: Colors.indigo[800],
+                            color: Colors.cyan[800],
                             decoration: TextDecoration.underline)),
                   ),
                 ),

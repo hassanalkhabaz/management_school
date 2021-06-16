@@ -12,13 +12,13 @@ class _ListHomeWorksState extends State<ListHomeWorks> {
     return Scaffold(
         appBar: AppBar(
           title: Text('All Homeworks'),
-          backgroundColor: Colors.indigo,
+          backgroundColor: Colors.cyan,
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             Navigator.of(context).pushNamed('/add_homework');
           },
-          backgroundColor: Colors.indigo,
+          backgroundColor: Colors.cyan,
           child: Icon(Icons.add),
         ),
         drawer: MyDrawer(),
@@ -50,12 +50,12 @@ class _ListHomeWorksState extends State<ListHomeWorks> {
           SizedBox(height: 5),
           Text(
             "Description: $description",
-            style: TextStyle(color: Colors.indigo[300]),
+            style: TextStyle(color: Colors.cyan[300]),
           ),
           Text(
             "End date: $endDate",
             textAlign: TextAlign.right,
-            style: TextStyle(color: Colors.indigo[300]),
+            style: TextStyle(color: Colors.cyan[300]),
           ),
         ],
       ),

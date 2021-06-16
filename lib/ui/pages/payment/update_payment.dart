@@ -15,7 +15,7 @@ class _UpdatePaymentState extends State<UpdatePayment> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.indigo,
+        backgroundColor: Colors.cyan,
         title: Text('Update Payment'),
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios_rounded),

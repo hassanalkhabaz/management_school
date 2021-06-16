@@ -16,7 +16,7 @@ class _AttendanceState extends State<Attendance> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Add Attendance'),
-        backgroundColor: Colors.indigo,
+        backgroundColor: Colors.cyan,
       ),
       drawer: MyDrawer(),
       body: SingleChildScrollView(

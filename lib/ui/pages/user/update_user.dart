@@ -17,7 +17,7 @@ class _UpdateUserState extends State<UpdateUser> {
     return Scaffold(
         appBar: AppBar(
           title: Text('Update User'),
-          backgroundColor: Colors.indigo,
+          backgroundColor: Colors.cyan,
           leading: IconButton(
             icon: Icon(Icons.arrow_back_ios_rounded),
             onPressed: () => Navigator.of(context).pop(),
@@ -58,7 +58,7 @@ class _UpdateUserState extends State<UpdateUser> {
                   ),
                   SizedBox(height: 20),
                   Divider(
-                    color: Colors.indigo,
+                    color: Colors.cyan,
                   ),
                   textField(
                     context,
@@ -77,7 +77,7 @@ class _UpdateUserState extends State<UpdateUser> {
                   ),
                   SizedBox(height: 20),
                   Divider(
-                    color: Colors.indigo,
+                    color: Colors.cyan,
                   ),
                   textField(
                     context,
@@ -112,7 +112,7 @@ class _UpdateUserState extends State<UpdateUser> {
                   ),
                   SizedBox(height: 20),
                   Divider(
-                    color: Colors.indigo,
+                    color: Colors.cyan,
                   ),
                   textField(
                     context,

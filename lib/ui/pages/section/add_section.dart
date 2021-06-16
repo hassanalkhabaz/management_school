@@ -19,7 +19,7 @@ class _AddSectionState extends State<AddSection> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Add Section'),
-        backgroundColor: Colors.indigo,
+        backgroundColor: Colors.cyan,
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios_rounded),
           onPressed: () => Navigator.of(context).pop(),

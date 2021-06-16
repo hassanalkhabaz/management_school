@@ -24,13 +24,13 @@ class _ListUsersState extends State<ListUsers> {
     return Scaffold(
       appBar: AppBar(
         title: Text('All Users'),
-        backgroundColor: Colors.indigo,
+        backgroundColor: Colors.cyan,
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.of(context).pushNamed('/add_user');
         },
-        backgroundColor: Colors.indigo,
+        backgroundColor: Colors.cyan,
         child: Icon(Icons.add),
       ),
       drawer: MyDrawer(),
@@ -63,7 +63,7 @@ class _ListUsersState extends State<ListUsers> {
       title: Text(name),
       subtitle: Text(
         type,
-        style: TextStyle(color: Colors.indigo[300]),
+        style: TextStyle(color: Colors.cyan[300]),
       ),
       trailing: Icon(Icons.arrow_forward_ios),
       onTap: () {

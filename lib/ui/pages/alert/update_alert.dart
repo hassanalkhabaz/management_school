@@ -15,7 +15,7 @@ class _UpdateAlertState extends State<UpdateAlert> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Update Alert'),
-        backgroundColor: Colors.indigo,
+        backgroundColor: Colors.cyan,
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios_rounded),
           onPressed: () => Navigator.of(context).pop(),

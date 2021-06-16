@@ -26,7 +26,7 @@ class _AddProgrameState extends State<AddPrograme> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Add Programe'),
-        backgroundColor: Colors.indigo,
+        backgroundColor: Colors.cyan,
       ),
       drawer: MyDrawer(),
       body: SingleChildScrollView(
@@ -58,7 +58,7 @@ class _AddProgrameState extends State<AddPrograme> {
                           ? Image.file(_image)
                           : Icon(
                               Icons.image,
-                              color: Colors.indigo[100],
+                              color: Colors.cyan[100],
                               size: 50,
                             ),
                     ),
@@ -68,7 +68,7 @@ class _AddProgrameState extends State<AddPrograme> {
                   icon: Icon(
                     Icons.camera_alt_rounded,
                     size: 35,
-                    color: Colors.indigo,
+                    color: Colors.cyan,
                   ),
                   onPressed: () {
                     getImage();

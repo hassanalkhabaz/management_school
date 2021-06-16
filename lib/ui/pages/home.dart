@@ -14,7 +14,7 @@ class HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(
         title: Text('home'),
-        backgroundColor: Colors.indigo[400],
+        backgroundColor: Colors.cyan[400],
       ),
       drawer: MyDrawer(),
       body: Column(
@@ -30,8 +30,8 @@ class HomeState extends State<Home> {
 
   Container coloredCard({title, content, int colors = 0}) {
     var colorsOps = [
-      [Colors.indigo[300], Colors.purple[300]],
-      [Colors.blue[300], Colors.indigo[300]],
+      [Colors.cyan[300], Colors.purple[300]],
+      [Colors.blue[300], Colors.cyan[300]],
       [Colors.lightGreen[300], Colors.green[300]],
       [Colors.purple[300], Colors.pink[300]],
       [Colors.orange[300], Colors.deepOrange[300]],

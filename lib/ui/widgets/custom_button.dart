@@ -6,7 +6,7 @@ Widget CustomButton({@required Function onPressed, @required String title}) {
     height: 50,
     padding: EdgeInsets.symmetric(horizontal: 50),
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-    color: Colors.indigo,
+    color: Colors.cyan,
     child: Text(
       title,
       style: TextStyle(

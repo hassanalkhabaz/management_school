@@ -23,13 +23,13 @@ class _ListPaymentsState extends State<ListPayments> {
     return Scaffold(
       appBar: AppBar(
         title: Text('All Payments'),
-        backgroundColor: Colors.indigo,
+        backgroundColor: Colors.cyan,
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.of(context).pushNamed('/add_payment');
         },
-        backgroundColor: Colors.indigo,
+        backgroundColor: Colors.cyan,
         child: Icon(Icons.add),
       ),
       drawer: MyDrawer(),
@@ -74,11 +74,11 @@ class _ListPaymentsState extends State<ListPayments> {
           SizedBox(height: 5),
           Text(
             "Paid Fees: $paidFees",
-            style: TextStyle(color: Colors.indigo[300]),
+            style: TextStyle(color: Colors.cyan[300]),
           ),
           Text(
             "Unpaid Fees: $unPaidFees",
-            style: TextStyle(color: Colors.indigo[300]),
+            style: TextStyle(color: Colors.cyan[300]),
           ),
         ],
       ),

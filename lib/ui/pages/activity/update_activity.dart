@@ -15,7 +15,7 @@ class _UpdateActivityState extends State<UpdateActivity> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Update activity'),
-        backgroundColor: Colors.indigo,
+        backgroundColor: Colors.cyan,
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios_rounded),
           onPressed: () => Navigator.of(context).pop(),

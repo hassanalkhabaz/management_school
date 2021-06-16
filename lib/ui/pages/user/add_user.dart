@@ -17,7 +17,7 @@ class _AddUserState extends State<AddUser> {
     return Scaffold(
         appBar: AppBar(
           title: Text('Add User'),
-          backgroundColor: Colors.indigo,
+          backgroundColor: Colors.cyan,
            leading: IconButton(
           icon: Icon(Icons.arrow_back_ios_rounded),
           onPressed: () => Navigator.of(context).pop(),
@@ -58,7 +58,7 @@ class _AddUserState extends State<AddUser> {
                   ),
                   SizedBox(height: 20),
                   Divider(
-                    color: Colors.indigo,
+                    color: Colors.cyan,
                   ),
                   textField(
                     context,
@@ -77,7 +77,7 @@ class _AddUserState extends State<AddUser> {
                   ),
                   SizedBox(height: 20),
                   Divider(
-                    color: Colors.indigo,
+                    color: Colors.cyan,
                   ),
                   textField(
                     context,
@@ -112,7 +112,7 @@ class _AddUserState extends State<AddUser> {
                   ),
                   SizedBox(height: 20),
                   Divider(
-                    color: Colors.indigo,
+                    color: Colors.cyan,
                   ),
                   textField(
                     context,

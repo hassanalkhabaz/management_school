@@ -15,7 +15,7 @@ class _UpdateSectionState extends State<UpdateSection> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Update Section'),
-        backgroundColor: Colors.indigo,
+        backgroundColor: Colors.cyan,
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios_rounded),
           onPressed: () => Navigator.of(context).pop(),

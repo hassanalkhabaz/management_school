@@ -12,11 +12,11 @@ class MyDrawer extends StatelessWidget {
             accountName: Text('hassan'),
             accountEmail: (Text('hassan@gmail.com ')),
             currentAccountPicture: (CircleAvatar(
-              backgroundColor: Colors.indigo,
+              backgroundColor: Colors.cyan,
               child: Icon(Icons.person),
             )),
             decoration: BoxDecoration(
-              color: Colors.indigo[400],
+              color: Colors.cyan[400],
             ),
           ),
 

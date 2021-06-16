@@ -23,13 +23,13 @@ class _ListAlertsState extends State<ListAlerts> {
     return Scaffold(
       appBar: AppBar(
         title: Text('All Alerts'),
-        backgroundColor: Colors.indigo,
+        backgroundColor: Colors.cyan,
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.of(context).pushNamed('/add_alert');
         },
-        backgroundColor: Colors.indigo,
+        backgroundColor: Colors.cyan,
         child: Icon(Icons.add),
       ),
       drawer: MyDrawer(),
@@ -64,7 +64,7 @@ class _ListAlertsState extends State<ListAlerts> {
       title: Text(alert.date.toString()),
       subtitle: Text(
         "Reason: ${alert.alarmReason}",
-        style: TextStyle(color: Colors.indigo[300]),
+        style: TextStyle(color: Colors.cyan[300]),
       ),
       // trailing: Icon(Icons.arrow_forward_ios),
     );

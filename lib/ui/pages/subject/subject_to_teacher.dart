@@ -14,7 +14,7 @@ class _SubjectToTeacherState extends State<SubjectToTeacher> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Add Teacher to activity'),
-        backgroundColor: Colors.indigo,
+        backgroundColor: Colors.cyan,
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios_rounded),
           onPressed: () => Navigator.of(context).pop(),

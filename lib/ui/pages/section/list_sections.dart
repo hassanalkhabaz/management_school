@@ -23,13 +23,13 @@ class _ListSectionsState extends State<ListSections> {
     return Scaffold(
       appBar: AppBar(
         title: Text('All Sections'),
-        backgroundColor: Colors.indigo,
+        backgroundColor: Colors.cyan,
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.of(context).pushNamed('/add_section');
         },
-        backgroundColor: Colors.indigo,
+        backgroundColor: Colors.cyan,
         child: Icon(Icons.add),
       ),
       drawer: MyDrawer(),

@@ -15,7 +15,7 @@ class _UpdateHomeWorkState extends State<UpdateHomeWork> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Update HomeWork'),
-        backgroundColor: Colors.indigo,
+        backgroundColor: Colors.cyan,
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios_rounded),
           onPressed: () => Navigator.of(context).pop(),

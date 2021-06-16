@@ -24,7 +24,7 @@ class _ListActivitiesState extends State<ListActivities> {
     return Scaffold(
       appBar: AppBar(
         title: Text('All Activities'),
-        backgroundColor: Colors.indigo,
+        backgroundColor: Colors.cyan,
       ),
       floatingActionButton: Column(
         mainAxisAlignment: MainAxisAlignment.end,
@@ -33,7 +33,7 @@ class _ListActivitiesState extends State<ListActivities> {
             onPressed: () {
               Navigator.of(context).pushNamed('/activity_to_section');
             },
-            color: Colors.indigo[300],
+            color: Colors.cyan[300],
             icon: Icon(Icons.more_vert_sharp),
           ),
           SizedBox(
@@ -43,7 +43,7 @@ class _ListActivitiesState extends State<ListActivities> {
             onPressed: () {
               Navigator.of(context).pushNamed('/add_activity');
             },
-            backgroundColor: Colors.indigo,
+            backgroundColor: Colors.cyan,
             child: Icon(Icons.add),
           ),
         ],
@@ -100,7 +100,7 @@ class _ListActivitiesState extends State<ListActivities> {
         children: [
           Text(
             "Type: ${activity.typeOf}",
-            style: TextStyle(color: Colors.indigo[300]),
+            style: TextStyle(color: Colors.cyan[300]),
           ),
           Text("Description: ${activity.description}"),
           Text("Begin date: ${activity.startDate}"),

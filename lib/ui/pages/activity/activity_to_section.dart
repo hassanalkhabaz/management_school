@@ -14,7 +14,7 @@ class _ActivityToSectionState extends State<ActivityToSection> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Add Activity to section'),
-        backgroundColor: Colors.indigo,
+        backgroundColor: Colors.cyan,
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios_rounded),
           onPressed: () => Navigator.of(context).pop(),

@@ -23,7 +23,7 @@ class _ListSubjectsState extends State<ListSubjects> {
     return Scaffold(
       appBar: AppBar(
         title: Text('All Subjects'),
-        backgroundColor: Colors.indigo,
+        backgroundColor: Colors.cyan,
       ),
       floatingActionButton: Column(
         mainAxisAlignment: MainAxisAlignment.end,
@@ -32,7 +32,7 @@ class _ListSubjectsState extends State<ListSubjects> {
             onPressed: () {
               Navigator.of(context).pushNamed('/subject_to_teacher');
             },
-            color: Colors.indigo[300],
+            color: Colors.cyan[300],
             icon: Icon(Icons.more_vert_sharp),
           ),
           SizedBox(
@@ -42,7 +42,7 @@ class _ListSubjectsState extends State<ListSubjects> {
             onPressed: () {
               Navigator.of(context).pushNamed('/add_subject');
             },
-            backgroundColor: Colors.indigo,
+            backgroundColor: Colors.cyan,
             child: Icon(Icons.add),
           ),
         ],

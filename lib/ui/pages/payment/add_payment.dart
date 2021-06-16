@@ -19,7 +19,7 @@ class _AddPaymentState extends State<AddPayment> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.indigo,
+        backgroundColor: Colors.cyan,
         title: Text('Add Payment'),
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios_rounded),

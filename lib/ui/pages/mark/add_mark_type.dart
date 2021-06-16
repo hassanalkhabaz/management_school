@@ -14,7 +14,7 @@ class _AddMarkTypeState extends State<AddMarkType> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Add new mark type'),
-        backgroundColor: Colors.indigo,
+        backgroundColor: Colors.cyan,
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios_rounded),
           onPressed: () => Navigator.of(context).pop(),

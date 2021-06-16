@@ -14,7 +14,7 @@ class _UpdateSubjectState extends State<UpdateSubject> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Update Subject'),
-        backgroundColor: Colors.indigo,
+        backgroundColor: Colors.cyan,
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios_rounded),
           onPressed: () => Navigator.of(context).pop(),

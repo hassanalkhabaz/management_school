@@ -16,8 +16,8 @@ class LogIn extends StatelessWidget {
           width: double.infinity,
           decoration: BoxDecoration(
             gradient: LinearGradient(begin: Alignment.topLeft, colors: [
-              Colors.indigo,
-              Colors.indigo[400],
+              Colors.cyan,
+              Colors.cyan[400],
             ]),
           ),
           child: Column(
@@ -67,7 +67,7 @@ class LogIn extends StatelessWidget {
                 textField(context,
                     icon: Icon(
                       Icons.person,
-                      color: Colors.indigo,
+                      color: Colors.cyan,
                     ),
                     filled: false,
                     name: 'username',
@@ -80,7 +80,7 @@ class LogIn extends StatelessWidget {
                 textField(context,
                     icon: Icon(
                       Icons.vpn_key,
-                      color: Colors.indigo,
+                      color: Colors.cyan,
                     ),
                     filled: false,
                     name: 'password',
@@ -117,7 +117,7 @@ class LogIn extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 50),
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-          color: Colors.indigo,
+          color: Colors.cyan,
           child: Text(
             'Login',
             style: TextStyle(
