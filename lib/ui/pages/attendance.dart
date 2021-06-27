@@ -26,6 +26,12 @@ class _AttendanceState extends State<Attendance> {
             child: Column(
               children: [
                 DropDownField(
+                  hint: "Class",
+                  items: ['class1'],
+                  onChange: (val) {},
+                ),
+                SizedBox(height: 20),
+                DropDownField(
                   hint: "Section",
                   items: ['section1'],
                   onChange: (val) {},
