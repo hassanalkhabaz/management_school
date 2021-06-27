@@ -88,6 +88,11 @@ class LogIn extends StatelessWidget {
                     hint: 'enter your password here',
                     isPassword: true,
                     onChanged: (val) {}),
+                    FormBuilderCheckbox(
+                      name: 'remember_me',
+                      title: Text('Remember me'),
+                      activeColor: Colors.cyan[300],
+                    ),
               ],
             ),
           ),
