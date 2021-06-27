@@ -38,6 +38,12 @@ class _SubjectToTeacherState extends State<SubjectToTeacher> {
                   items: ['1', '2', '3'],
                 ),
                 SizedBox(height: 20),
+                DropDownField(
+                  hint: 'section Name',
+                  onChange: (val) {},
+                  items: ['1', '2', '3'],
+                ),
+                SizedBox(height: 20),
                 CustomButton(onPressed: () {}, title: 'Add'),
               ],
             ),
