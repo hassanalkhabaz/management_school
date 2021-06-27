@@ -27,8 +27,11 @@ class _AddProgrameState extends State<AddPrograme> {
       appBar: AppBar(
         title: Text('Add Programe'),
         backgroundColor: Colors.cyan,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios_rounded),
+          onPressed: () => Navigator.of(context).pop(),
+        ),
       ),
-      drawer: MyDrawer(),
       body: SingleChildScrollView(
         child: FormBuilder(
           child: Padding(
@@ -81,6 +84,12 @@ class _AddProgrameState extends State<AddPrograme> {
                   name: "programe_name",
                   hint: "add programe name",
                   onChanged: (str) {},
+                ),
+                SizedBox(height: 20),
+                DropDownField(
+                  hint: "Class",
+                  items: ['Class1', 'Class2', 'Class3'],
+                  onChange: (val) {},
                 ),
                 SizedBox(height: 20),
                 DropDownField(

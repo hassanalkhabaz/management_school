@@ -3,24 +3,23 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:management_school/ui/widgets/DropDownField.dart';
 import 'package:management_school/ui/widgets/MyDrawer.dart';
 import 'package:management_school/ui/widgets/custom_button.dart';
-import 'package:management_school/ui/widgets/fields.dart';
 
-class UpdatePayment extends StatefulWidget {
+class UpdateAttendance extends StatefulWidget {
   @override
-  _UpdatePaymentState createState() => _UpdatePaymentState();
+  _UpdateAttendanceState createState() => _UpdateAttendanceState();
 }
 
-class _UpdatePaymentState extends State<UpdatePayment> {
+class _UpdateAttendanceState extends State<UpdateAttendance> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: Text('Update Attendance'),
         backgroundColor: Colors.cyan,
-        title: Text('Update Payment'),
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios_rounded),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
+      ),
+      drawer: IconButton(
+        icon: Icon(Icons.arrow_back_ios_rounded),
+        onPressed: () => Navigator.of(context).pop(),
       ),
       body: SingleChildScrollView(
         child: FormBuilder(
@@ -28,17 +27,9 @@ class _UpdatePaymentState extends State<UpdatePayment> {
             padding: const EdgeInsets.all(20.0),
             child: Column(
               children: [
-                textField(
-                  context,
-                  label: "Paid",
-                  name: "paid",
-                  hint: "add a payment",
-                  onChanged: (str) {},
-                ),
-                SizedBox(height: 20),
                 DropDownField(
                   hint: "Class",
-                  items: ['Class1', 'Class2', 'Class3'],
+                  items: ['class1'],
                   onChange: (val) {},
                 ),
                 SizedBox(height: 20),
@@ -54,7 +45,15 @@ class _UpdatePaymentState extends State<UpdatePayment> {
                   onChange: (val) {},
                 ),
                 SizedBox(height: 20),
-                CustomButton(onPressed: () {}, title: 'Update'),
+                FormBuilderCheckbox(
+                  name: 'attendance',
+                  title: Text('Is Attandees'),
+                  initialValue: false,
+                  selected: false,
+                  decoration: InputDecoration(border: InputBorder.none),
+                ),
+                SizedBox(height: 20),
+                CustomButton(onPressed: () {}, title: 'Update Attendance'),
               ],
             ),
           ),

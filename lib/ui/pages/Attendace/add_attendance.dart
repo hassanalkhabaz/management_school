@@ -3,14 +3,13 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:management_school/ui/widgets/DropDownField.dart';
 import 'package:management_school/ui/widgets/MyDrawer.dart';
 import 'package:management_school/ui/widgets/custom_button.dart';
-import 'package:management_school/ui/widgets/fields.dart';
 
-class Attendance extends StatefulWidget {
+class AddAttendance extends StatefulWidget {
   @override
-  _AttendanceState createState() => _AttendanceState();
+  _AddAttendanceState createState() => _AddAttendanceState();
 }
 
-class _AttendanceState extends State<Attendance> {
+class _AddAttendanceState extends State<AddAttendance> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +17,10 @@ class _AttendanceState extends State<Attendance> {
         title: Text('Add Attendance'),
         backgroundColor: Colors.cyan,
       ),
-      drawer: MyDrawer(),
+      drawer: IconButton(
+        icon: Icon(Icons.arrow_back_ios_rounded),
+        onPressed: () => Navigator.of(context).pop(),
+      ),
       body: SingleChildScrollView(
         child: FormBuilder(
           child: Padding(

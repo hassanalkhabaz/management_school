@@ -20,10 +20,12 @@ class _AddMarkState extends State<AddMark> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Add mark'),
-        backgroundColor: Colors.cyan,
-      ),
-      drawer: MyDrawer(),
+          title: Text('Add mark'),
+          backgroundColor: Colors.cyan,
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back_ios_rounded),
+            onPressed: () => Navigator.of(context).pop(),
+          )),
       body: SingleChildScrollView(
         child: FormBuilder(
           child: Padding(
@@ -32,19 +34,25 @@ class _AddMarkState extends State<AddMark> {
               children: [
                 DropDownField(
                   hint: "Class",
-                  items: ['class1'],
+                  items: ['Class1', 'Class2', 'Class3'],
                   onChange: (val) {},
                 ),
                 SizedBox(height: 20),
                 DropDownField(
+                    //TODO:init values
+                    hint: 'Select Section',
+                    items: ['Section1', 'Section2', 'Section3'],
+                    onChange: (val) {}),
+                SizedBox(height: 20),
+                DropDownField(
                   hint: "Subject",
-                  items: ['subject'],
+                  items: ['Subject1', 'Subject2', 'Subject3'],
                   onChange: (val) {},
                 ),
                 SizedBox(height: 20),
                 DropDownField(
                   hint: "Student",
-                  items: ['student'],
+                  items: ['Student1', 'Student2', 'Student3'],
                   onChange: (val) {},
                 ),
                 SizedBox(height: 20),

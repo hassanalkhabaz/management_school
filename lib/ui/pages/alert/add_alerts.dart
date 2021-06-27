@@ -32,14 +32,20 @@ class _AddAlertState extends State<AddAlert> {
             child: Column(
               children: [
                 DropDownField(
+                  hint: "Class",
+                  items: ['Class1', 'Class3', 'Class3'],
+                  onChange: (val) {},
+                ),
+                SizedBox(height: 20),
+                DropDownField(
                   hint: "Section",
-                  items: ['section1'],
+                  items: ['Section1', 'Section3', 'Section3'],
                   onChange: (val) {},
                 ),
                 SizedBox(height: 20),
                 DropDownField(
                   hint: "Student",
-                  items: ['student'],
+                  items: ['Student1', 'Student3', 'Student3'],
                   onChange: (val) {
                     studentId = val;
                   },

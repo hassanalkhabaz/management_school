@@ -41,6 +41,12 @@ class _AddPaymentState extends State<AddPayment> {
                 ),
                 SizedBox(height: 20),
                 DropDownField(
+                  hint: "Class",
+                  items: ['Class1', 'Class2', 'Class3'],
+                  onChange: (val) {},
+                ),
+                SizedBox(height: 20),
+                DropDownField(
                   hint: "Section",
                   items: ['section1'],
                   onChange: (val) {},

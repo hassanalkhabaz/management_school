@@ -24,6 +24,7 @@ class _AddHomeWorkState extends State<AddHomeWork> {
           icon: Icon(Icons.arrow_back_ios_rounded),
           onPressed: () => Navigator.of(context).pop(),
         ),
+        bottom: buildDropDwonSelectionField(),
       ),
       body: SingleChildScrollView(
         child: FormBuilder(
@@ -36,6 +37,12 @@ class _AddHomeWorkState extends State<AddHomeWork> {
                     name: "submitting_date",
                     onChanged: (str) {},
                     hint: "homework submitting date"),
+                SizedBox(height: 20),
+                DropDownField(
+                  hint: "Class",
+                  items: ['Class1', 'Class3', 'Class3'],
+                  onChange: (val) {},
+                ),
                 SizedBox(height: 20),
                 DropDownField(
                   onChange: (val) {
@@ -82,6 +89,42 @@ class _AddHomeWorkState extends State<AddHomeWork> {
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  PreferredSize buildDropDwonSelectionField() {
+    double verticalSpacing = 40;
+    double horizontalPadding = 10;
+    double verticalPadding = 10;
+    return PreferredSize(
+      preferredSize: Size(0, verticalSpacing * 3),
+      child: Container(
+        padding: EdgeInsets.symmetric(
+          horizontal: horizontalPadding,
+          vertical: verticalPadding,
+        ),
+        child: Column(children: <Widget>[
+          FormBuilder(
+              key: _formKey,
+              child: Column(
+                children: [
+                  DropDownField(
+                      //TODO:init values
+                      hint: 'Select Class',
+                      items: ['class1', 'class2', 'class3'],
+                      onChange: (val) {}),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  DropDownField(
+                      //TODO:init values
+                      hint: 'Select Section',
+                      items: ['Section1', 'Section2', 'Section3'],
+                      onChange: (val) {}),
+                ],
+              ))
+        ]),
       ),
     );
   }

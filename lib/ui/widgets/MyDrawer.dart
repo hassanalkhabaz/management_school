@@ -11,7 +11,6 @@ class MyDrawer extends StatelessWidget {
           UserAccountsDrawerHeader(
             accountName: Text('hassan'),
             accountEmail: (Text('hassan@gmail.com ')),
-            
             decoration: BoxDecoration(
               color: Colors.cyan[400],
             ),
@@ -54,7 +53,7 @@ class MyDrawer extends StatelessWidget {
               icon: Icon(Icons.check),
               title: 'Attendance',
               onTap: () {
-                Navigator.of(context).pushNamed('/attendance');
+                Navigator.of(context).pushNamed('/list_attendance');
               }),
           buildListTile(
               icon: Icon(Icons.warning_amber_rounded),
@@ -78,13 +77,13 @@ class MyDrawer extends StatelessWidget {
               icon: Icon(Icons.rate_review),
               title: 'Marks',
               onTap: () {
-                Navigator.of(context).pushNamed('/add_mark');
+                Navigator.of(context).pushNamed('/list_mark');
               }),
           buildListTile(
               icon: Icon(Icons.calendar_today),
               title: 'Programe',
               onTap: () {
-                Navigator.of(context).pushNamed('/add_programe');
+                Navigator.of(context).pushNamed('/list_programe');
               }),
           buildListTile(
               icon: Icon(Icons.monetization_on_outlined),

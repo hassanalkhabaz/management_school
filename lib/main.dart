@@ -1,4 +1,7 @@
-import 'package:management_school/ui/pages/activity/activity_to_section.dart';
+import 'package:management_school/ui/pages/Attendace/list_attendance.dart';
+import 'package:management_school/ui/pages/Attendace/update_attendance.dart';
+import 'package:management_school/ui/pages/activity/activity_with_section/activity_to_section.dart';
+import 'package:management_school/ui/pages/activity/activity_with_section/update_activity_with_section.dart';
 import 'package:management_school/ui/pages/activity/add_activity.dart';
 import 'package:management_school/ui/pages/activity/list_activities.dart';
 import 'package:management_school/ui/pages/activity/update_activity.dart';
@@ -8,17 +11,19 @@ import 'package:management_school/ui/pages/class/update_class.dart';
 import 'package:management_school/ui/pages/homework/list_homework.dart';
 import 'package:management_school/ui/pages/homework/update_homework.dart';
 import 'package:management_school/ui/pages/mark/add_mark_type.dart';
+import 'package:management_school/ui/pages/mark/list_marks.dart';
 import 'package:management_school/ui/pages/mark/update_mak.dart';
 import 'package:management_school/ui/pages/payment/add_payment.dart';
 import 'package:management_school/ui/pages/alert/list_alerts.dart';
-import 'package:management_school/ui/pages/attendance.dart';
+import 'package:management_school/ui/pages/attendace/add_attendance.dart';
 import 'package:management_school/ui/pages/class/add_class.dart';
 import 'package:management_school/ui/pages/homework/add_homework.dart';
 import 'package:management_school/ui/pages/mark/add_mark.dart';
-import 'package:management_school/ui/pages/add_programe.dart';
+import 'package:management_school/ui/pages/programe/add_programe.dart';
 import 'package:management_school/ui/pages/class/list_classes.dart';
 import 'package:management_school/ui/pages/payment/list_payments.dart';
 import 'package:management_school/ui/pages/payment/update_payment.dart';
+import 'package:management_school/ui/pages/programe/list_programes.dart';
 import 'package:management_school/ui/pages/section/update_section.dart';
 import 'package:management_school/ui/pages/subject/add_subject.dart';
 import 'package:management_school/ui/pages/subject/list_subjects.dart';
@@ -71,7 +76,8 @@ class MyApp extends StatelessWidget {
         '/add_activity': (context) => AddActivity(),
         '/update_activity': (context) => UpdateActivity(),
         '/list_activity': (context) => ListActivities(),
-        '/activity_to_section': (context) => ActivityToSection(),
+        '/add_activity_to_section': (context) => ActivityToSection(),
+        '/update_activity_to_section': (context) => UpdateActivityToSection(),
 
         ///
         '/list_subject': (context) => ListSubjects(),
@@ -85,6 +91,7 @@ class MyApp extends StatelessWidget {
         '/list_alert': (context) => ListAlerts(),
 
         ///
+        '/list_mark': (context) => ListMarks(),
         '/add_mark': (context) => AddMark(),
         '/update_mark': (context) => UpdateMark(),
         '/add_mark_type': (context) => AddMarkType(),
@@ -101,7 +108,12 @@ class MyApp extends StatelessWidget {
 
         ///
         '/add_programe': (context) => AddPrograme(),
-        '/attendance': (context) => Attendance(),
+        '/list_programe': (context) => ListPrograme(),
+
+        ///
+        '/add_attendance': (context) => AddAttendance(),
+        '/list_attendance': (context) => ListAttendance(),
+        '/update_attendance': (context) => UpdateAttendance(),
 
         '/home': (context) => Home(),
       },

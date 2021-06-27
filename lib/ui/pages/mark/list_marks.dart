@@ -1,60 +1,71 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:management_school/api/api_helper.dart';
-import 'package:management_school/model/alarm_model.dart';
+import 'package:management_school/model/activity_model.dart';
+import 'package:management_school/model/mark_model.dart';
 import 'package:management_school/ui/widgets/DropDownField.dart';
 import 'package:management_school/ui/widgets/MyDrawer.dart';
+import 'package:management_school/ui/widgets/dialog.dart';
 
-class ListAlerts extends StatefulWidget {
+class ListMarks extends StatefulWidget {
   @override
-  _ListAlertsState createState() => _ListAlertsState();
+  _ListMarksState createState() => _ListMarksState();
 }
 
-class _ListAlertsState extends State<ListAlerts> {
-  List<AlarmModel> alertData;
+class _ListMarksState extends State<ListMarks> {
+  List<MarkModel> marksData;
   bool _isLoading = true;
   final _formKey = GlobalKey<FormBuilderState>();
 
   @override
   void initState() {
     super.initState();
-    fetchAlertsData();
+    fetchActivitiesData();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('All Alerts'),
+        title: Text('All Marks'),
         backgroundColor: Colors.cyan,
         bottom: buildDropDwonSelectionField(),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.of(context).pushNamed('/add_alert');
+          Navigator.of(context).pushNamed('/add_mark');
         },
         backgroundColor: Colors.cyan,
         child: Icon(Icons.add),
       ),
       drawer: MyDrawer(),
       body: !_isLoading
-          ? alertData != null
+          ? marksData != null
               ? Container(
                   child: ListView.separated(
                     padding: EdgeInsets.all(10),
-                    itemCount: 3,
+                    itemCount: marksData.length,
                     separatorBuilder: (context, i) {
-                      return Divider(height: 1, thickness: 1.5);
+                      return Divider(
+                        height: 10,
+                        thickness: 1.5,
+                      );
                     },
                     itemBuilder: (context, index) {
-                      return alertTile(alertData[index], onTap: () {
-                        Navigator.of(context).pushNamed('/update_alert');
-                      });
+                      return markTile(
+                        marksData[index],
+                        onTap: () {
+                          Navigator.of(context).pushNamed('/update_mark');
+                        },
+                        onLongPress: () async {
+                          await dialog(context, onPressed: () {});
+                        },
+                      );
                     },
                   ),
                 )
               : Center(
-                  child: Text('No Alerts Found'),
+                  child: Text('No Marks Found'),
                 )
           : Center(
               child: CircularProgressIndicator(),
@@ -62,15 +73,22 @@ class _ListAlertsState extends State<ListAlerts> {
     );
   }
 
-  ListTile alertTile(AlarmModel alert, {onTap}) {
+/////
+  var fakeData = ActivityModel(
+      description: "description here",
+      id: 1,
+      endDate: DateTime.now(),
+      startDate: DateTime.now());
+  ////
+  Widget markTile(MarkModel mark, {onTap, onLongPress}) {
     return ListTile(
       onTap: onTap,
-      title: Text(alert.date.toString()),
+      onLongPress: onLongPress,
+      title: Text("Mark type: ${mark.markTypeName}"),
       subtitle: Text(
-        "Reason: ${alert.alarmReason}",
+        "Mark: ${mark.degree}",
         style: TextStyle(color: Colors.cyan[300]),
       ),
-      // trailing: Icon(Icons.arrow_forward_ios),
     );
   }
 
@@ -79,7 +97,7 @@ class _ListAlertsState extends State<ListAlerts> {
     double horizontalPadding = 10;
     double verticalPadding = 10;
     return PreferredSize(
-      preferredSize: Size(0, verticalSpacing * 5),
+      preferredSize: Size(0, verticalSpacing * 6),
       child: Container(
         padding: EdgeInsets.symmetric(
           horizontal: horizontalPadding,
@@ -108,6 +126,14 @@ class _ListAlertsState extends State<ListAlerts> {
                   ),
                   DropDownField(
                       //TODO:init values
+                      hint: 'Select Subject',
+                      items: ['subject1', 'subject2', 'subject3'],
+                      onChange: (val) {}),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  DropDownField(
+                      //TODO:init values
                       hint: 'Select Student',
                       items: ['Student1', 'Student2', 'Student3'],
                       onChange: (val) {}),
@@ -118,11 +144,11 @@ class _ListAlertsState extends State<ListAlerts> {
     );
   }
 
-  // Secreen Logic
-  void fetchAlertsData() async {
-    final data = await ApiHelper().listAlarms();
+// Secreen Logic
+  void fetchActivitiesData() async {
+    final data = await ApiHelper().listMarks();
     setState(() {
-      alertData = data;
+      marksData = data;
       _isLoading = false;
     });
   }

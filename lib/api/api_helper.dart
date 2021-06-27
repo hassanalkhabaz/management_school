@@ -7,6 +7,7 @@ import 'package:management_school/model/class_model.dart';
 import 'package:management_school/model/dropdown_response.dart';
 import 'package:management_school/model/homework_model.dart';
 import 'package:management_school/model/login_model.dart';
+import 'package:management_school/model/mark_model.dart';
 import 'package:management_school/model/payment_model.dart';
 import 'package:management_school/model/section_model.dart';
 import 'package:management_school/model/subject_model.dart';
@@ -157,8 +158,7 @@ class ApiHelper {
     ).timeout(Duration(seconds: _requestTimeout));
 
     var model;
-    if (response.body != "") 
-    model = sectionModelFromJson(response.body);
+    if (response.body != "") model = sectionModelFromJson(response.body);
     return model;
   }
 
@@ -206,9 +206,8 @@ class ApiHelper {
       headers: {'Authorization': 'Bearer $accessToken'},
     ).timeout(Duration(seconds: _requestTimeout));
 
-      var model;
-    if(response.body != "")
-     model =subjectModelFromJson(response.body);
+    var model;
+    if (response.body != "") model = subjectModelFromJson(response.body);
     return model;
   }
 
@@ -278,9 +277,8 @@ class ApiHelper {
       headers: {'Authorization': 'Bearer $accessToken'},
     ).timeout(Duration(seconds: _requestTimeout));
 
-      var model;
-    if(response.body != "")
-     model =alarmModelFromJson(response.body);
+    var model;
+    if (response.body != "") model = alarmModelFromJson(response.body);
     return model;
   }
 
@@ -320,10 +318,9 @@ class ApiHelper {
       headers: {'Authorization': 'Bearer $accessToken'},
     ).timeout(Duration(seconds: _requestTimeout));
 
-     var model;
-    if(response.body != "")
-     model =homeworkModelFromJson(response.body);
-    return model; 
+    var model;
+    if (response.body != "") model = homeworkModelFromJson(response.body);
+    return model;
   }
 
   //? marks
@@ -348,7 +345,7 @@ class ApiHelper {
     return model['succeeded'];
   }
 
-  Future<List<ActivityModel>> listMarks() async {
+  Future<List<MarkModel>> listMarks() async {
     final url = Uri.http(_baseUrl, '/api/Teacher/GetMark');
     var accessToken = await MyCache.getString('token');
 
@@ -358,7 +355,9 @@ class ApiHelper {
       headers: {'Authorization': 'Bearer $accessToken'},
     ).timeout(Duration(seconds: _requestTimeout));
 
-    return activityModelFromJson(response.body);
+    var model;
+    if (response.body != "") model = markModelFromJson(response.body);
+    return model;
   }
   //? payment section
 
