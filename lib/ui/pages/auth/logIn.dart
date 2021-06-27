@@ -93,6 +93,8 @@ class LogIn extends StatelessWidget {
                       title: Text('Remember me'),
                       activeColor: Colors.cyan[300],
                       tristate: false,
+                      initialValue: false,
+                      decoration: InputDecoration(border: InputBorder.none),
                     ),
               ],
             ),
