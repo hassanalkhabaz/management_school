@@ -13,7 +13,7 @@ class _SubjectToTeacherState extends State<SubjectToTeacher> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Add Teacher to activity'),
+        title: Text('Add Teacher to subject'),
         backgroundColor: Colors.cyan,
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios_rounded),
