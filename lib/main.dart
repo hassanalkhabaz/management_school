@@ -25,6 +25,7 @@ import 'package:management_school/ui/pages/payment/list_payments.dart';
 import 'package:management_school/ui/pages/payment/update_payment.dart';
 import 'package:management_school/ui/pages/programe/list_programes.dart';
 import 'package:management_school/ui/pages/section/update_section.dart';
+import 'package:management_school/ui/pages/splash.dart';
 import 'package:management_school/ui/pages/subject/add_subject.dart';
 import 'package:management_school/ui/pages/subject/list_subjects.dart';
 import 'package:management_school/ui/pages/section/add_section.dart';
@@ -52,7 +53,7 @@ class MyApp extends StatelessWidget {
       title: 'MY SCHOOL',
       routes: {
         ///
-        '/login': (context) => LogIn(),
+        '/login': (context) => Login(),
         '/forgot_password': (context) => ForgotPassword(),
         '/auth_password': (context) => ForgotPassword(),
 
@@ -117,7 +118,7 @@ class MyApp extends StatelessWidget {
 
         '/home': (context) => Home(),
       },
-      home: LogIn(),
+      home: Splash(),
     );
   }
 }

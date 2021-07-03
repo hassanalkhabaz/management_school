@@ -1,11 +1,19 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:management_school/api/api_helper.dart';
 import 'package:management_school/ui/widgets/fields.dart';
+import 'package:bot_toast/bot_toast.dart';
 
-class LogIn extends StatelessWidget {
-  ///default = 40
+class Login extends StatefulWidget {
+  @override
+  _LoginState createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+  bool _isLoading = false;
+  final _formKey = GlobalKey<FormBuilderState>();
+
   double verticalSpacing = 40;
   @override
   Widget build(BuildContext context) {
@@ -53,8 +61,6 @@ class LogIn extends StatelessWidget {
   }
 
   Column buildLoginForm(BuildContext context) {
-    final _formKey = GlobalKey<FormBuilderState>();
-
     return Column(
       children: <Widget>[
         Container(
@@ -88,14 +94,14 @@ class LogIn extends StatelessWidget {
                     hint: 'enter your password here',
                     isPassword: true,
                     onChanged: (val) {}),
-                    FormBuilderCheckbox(
-                      name: 'remember_me',
-                      title: Text('Remember me'),
-                      activeColor: Colors.cyan[300],
-                      tristate: false,
-                      initialValue: false,
-                      decoration: InputDecoration(border: InputBorder.none),
-                    ),
+                FormBuilderCheckbox(
+                  name: 'remember_me',
+                  title: Text('Remember me'),
+                  activeColor: Colors.cyan[300],
+                  tristate: false,
+                  initialValue: false,
+                  decoration: InputDecoration(border: InputBorder.none),
+                ),
               ],
             ),
           ),
@@ -103,25 +109,29 @@ class LogIn extends StatelessWidget {
         SizedBox(
           height: verticalSpacing * .5,
         ),
-       
         SizedBox(
           height: verticalSpacing * .5,
         ),
         FlatButton(
-          onPressed: () {
-            Navigator.of(context).pushReplacementNamed('/home');
-          },
-          height: 50,
-          padding: EdgeInsets.symmetric(horizontal: 50),
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-          color: Colors.cyan,
-          child: Text(
-            'Login',
-            style: TextStyle(
-                color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
-          ),
-        ),
+            onPressed: () {
+              if (_formKey.currentState.saveAndValidate()) {
+                login();
+              }
+            },
+            height: 50,
+            padding: EdgeInsets.symmetric(horizontal: 50),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+            color: Colors.cyan,
+            child: _isLoading
+                ? CircularProgressIndicator()
+                : Text(
+                    'Login',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold),
+                  )),
       ],
     );
   }
@@ -150,5 +160,22 @@ class LogIn extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  void login() {
+    setState(() {
+      _isLoading = true;
+    });
+    ApiHelper()
+        .login(_formKey.currentState.value['username'],
+            _formKey.currentState.value['password'], true)
+        .then((response) {
+      setState(() {
+        _isLoading = false;
+      });
+      response.succeeded
+          ? Navigator.of(context).pushReplacementNamed('/home')
+          : BotToast.showText(text: 'wrong username or password');
+    });
   }
 }

@@ -14,20 +14,27 @@ import 'package:management_school/model/subject_model.dart';
 import 'package:management_school/model/user_model.dart';
 import 'package:management_school/my_cache.dart';
 import 'package:http_parser/http_parser.dart';
-import 'package:management_school/ui/pages/activity/add_activity.dart';
-import 'package:management_school/ui/pages/activity/list_activities.dart';
-import 'package:management_school/ui/pages/homework/list_homework.dart';
-import 'package:management_school/ui/pages/subject/list_subjects.dart';
 
 class ApiHelper {
-  final String _baseUrl = "78.47.183.107:5000";
+  final String _baseUrl = "school2021.somee.com";
   final int _requestTimeout = 80;
 
-  Future<LoginModel> login(String username, String password) async {
+  Future<LoginModel> login(
+      String username, String password, bool rememberMe) async {
     final url = Uri.http(_baseUrl, '/api/Account/Login');
+    final headers = <String, String>{};
+    headers["Accept"] = "text/plain";
     print("url: $url");
-    final response =
-        await http.post(url).timeout(Duration(seconds: _requestTimeout));
+    final response = await http.post(
+      url,
+      headers: headers,
+      body: {
+        'userName': username,
+        'password': password,
+        'rememberMe': "$rememberMe",
+      },
+    ).timeout(Duration(seconds: _requestTimeout));
+    print("response:  ${response.body}");
     var model = loginModelFromJson(response.body);
     if (response.statusCode == 200) {
       MyCache.putString('token', model.data.jwtToken);

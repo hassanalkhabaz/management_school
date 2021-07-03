@@ -21,14 +21,12 @@ class LoginModel {
   factory LoginModel.fromJson(Map<String, dynamic> json) => LoginModel(
         succeeded: json["succeeded"],
         message: json["message"],
-        errors: List<String>.from(json["errors"].map((x) => x)),
         data: Data.fromJson(json["data"]),
       );
 
   Map<String, dynamic> toJson() => {
         "succeeded": succeeded,
         "message": message,
-        "errors": List<dynamic>.from(errors.map((x) => x)),
         "data": data.toJson(),
       };
 }
